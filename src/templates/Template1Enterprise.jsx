@@ -3,124 +3,31 @@ import {
   Building2,
   Cpu,
   Globe,
-  Smartphone,
-  ShoppingBag,
   ArrowRight,
   CheckCircle2,
   ShieldCheck,
-  BarChart3,
-  Users2,
-  Layers,
-  Sparkles,
   ChevronRight,
-  PhoneCall,
-  Mail,
-  MapPin,
   ExternalLink,
-  Award
+  Award,
 } from 'lucide-react';
+import { template1Services } from '../data/services';
+import { template1Industries } from '../data/industries';
+import Button from '../components/ui/Button';
+import Badge from '../components/ui/Badge';
+import Card from '../components/ui/Card';
+import SectionHeader from '../components/ui/SectionHeader';
+import TopBar from '../components/layout/TopBar';
 
 export default function Template1Enterprise({ onOpenContact }) {
   const [activeTab, setActiveTab] = useState('sap');
-
-  const services = [
-    {
-      id: 'sap',
-      title: 'SAP Enterprise Solutions',
-      icon: Building2,
-      tag: 'Flagship Core',
-      headline: 'End-to-End SAP S/4HANA & Cloud Transformation',
-      desc: 'Seamlessly migrate, implement, and orchestrate enterprise resource planning with certified SAP methodologies. We modernize legacy ERP environments into agile, intelligent digital cores.',
-      capabilities: [
-        'SAP S/4HANA Cloud & On-Premise Implementation',
-        'Legacy ECC 6.0 to S/4HANA Brownfield & Greenfield Migrations',
-        'SAP Business Technology Platform (BTP) & Extension Suite',
-        'SAP Fiori Custom UX & Enterprise Integration Architecture',
-        '24/7 Managed Services, Basis Administration & Performance Tuning'
-      ],
-      stat: '40%+',
-      statLabel: 'Average cycle time reduction for business reporting'
-    },
-    {
-      id: 'ai',
-      title: 'Enterprise AI & Automation',
-      icon: Cpu,
-      tag: 'Next-Gen Innovation',
-      headline: 'Intelligent Agentic Systems & Autonomous Enterprise Workflows',
-      desc: 'Embed conversational AI, automated decision engines, and predictive intelligence into your core ERP and enterprise workflows for maximum operational velocity.',
-      capabilities: [
-        'Custom Enterprise AI Agents & Workflow Automation',
-        'Predictive Analytics & Automated Demand Forecasting',
-        'Intelligent Document Processing (IDP) for Invoicing & Logistics',
-        'ERP-Integrated LLM Copilots & Enterprise Knowledge Graphs',
-        'Secure Private AI Deployment with Zero Data Leakage'
-      ],
-      stat: '65%',
-      statLabel: 'Routine administrative workload reduction'
-    },
-    {
-      id: 'web',
-      title: 'Enterprise Web Platforms',
-      icon: Globe,
-      tag: 'Digital Engineering',
-      headline: 'Mission-Critical Corporate Portals & Web Applications',
-      desc: 'High-availability, enterprise-grade web engineering designed to handle high transaction volumes, multi-tenant architectures, and complex backend integrations.',
-      capabilities: [
-        'Custom B2B Customer & Supplier Portals with ERP Sync',
-        'Modern High-Performance Web Apps (React, Next.js, Node)',
-        'Enterprise Single Sign-On (SSO), Role-Based Access & SOC2 Compliance',
-        'Micro-Frontend & Microservices Architecture Design',
-        'Cloud-Native CI/CD Automation & Kubernetes Scalability'
-      ],
-      stat: '99.95%',
-      statLabel: 'Platform uptime SLA across production deployments'
-    },
-    {
-      id: 'mobile',
-      title: 'Mobile App Development',
-      icon: Smartphone,
-      tag: 'Field & Consumer Apps',
-      headline: 'Native & Cross-Platform Mobile Solutions for Enterprise',
-      desc: 'Empower field engineers, supply chain operators, and end consumers with blazing-fast, offline-capable iOS and Android applications.',
-      capabilities: [
-        'Warehouse & Supply Chain Handheld Scanning Apps',
-        'Field Service & Maintenance Technician Mobile Portals',
-        'Executive Real-Time KPI Dashboards & Approval Flows',
-        'Cross-Platform React Native & Flutter Engineering',
-        'Secure Offline Data Synchronization with Enterprise Backends'
-      ],
-      stat: '3.5x',
-      statLabel: 'Faster field ticket turnaround & dispatch'
-    },
-    {
-      id: 'ecom',
-      title: 'E-Commerce Solutions',
-      icon: ShoppingBag,
-      tag: 'Commerce & Scale',
-      headline: 'Omnichannel B2B & B2C Digital Commerce Engines',
-      desc: 'Turn digital touchpoints into revenue drivers with high-converting, scalable e-commerce platforms fully unified with your inventory, pricing, and ERP systems.',
-      capabilities: [
-        'B2B Wholesale Portals with Tiered Pricing & Credit Approvals',
-        'Headless Commerce Architectures & Microservices APIs',
-        'Real-Time SAP Inventory & Order Management Integration',
-        'Multi-Currency, Multi-Warehouse Global Fulfillment',
-        'High-Converting Checkout Optimization & Payment Gateways'
-      ],
-      stat: '28%',
-      statLabel: 'Average conversion lift across modernized storefronts'
-    }
-  ];
-
-  const activeService = services.find(s => s.id === activeTab) || services[0];
+  const services = template1Services;
+  const activeService = services.find((s) => s.id === activeTab) || services[0];
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Top Header Bar */}
-      <div
-        className="text-slate-300 text-xs py-2 px-4 sm:px-8 border-b border-slate-800"
-        style={{ backgroundColor: 'var(--color-dark, #0B192C)' }}
-      >
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <TopBar
+        leftContent={
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-blue-400 font-medium">
               <ShieldCheck className="w-3.5 h-3.5" /> Certified Enterprise Practice
@@ -128,17 +35,19 @@ export default function Template1Enterprise({ onOpenContact }) {
             <span className="hidden md:inline text-slate-500">|</span>
             <span className="hidden md:inline">SAP S/4HANA • Enterprise AI • Digital Platforms</span>
           </div>
+        }
+        rightContent={
           <div className="flex items-center gap-4">
             <span>Global Delivery Excellence</span>
             <button
               onClick={onOpenContact}
-              className="text-blue-400 hover:text-white transition font-medium"
+              className="text-blue-400 hover:text-white transition font-medium cursor-pointer"
             >
               Request Consultation →
             </button>
           </div>
-        </div>
-      </div>
+        }
+      />
 
       {/* Main Enterprise Navbar */}
       <header className="sticky top-12 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -168,30 +77,33 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
+            <Button
+              variant="outline"
+              size="md"
               onClick={onOpenContact}
-              className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded text-sm font-semibold text-[var(--color-primary,#0070F2)] bg-blue-50 hover:bg-blue-100 transition border border-blue-200"
+              className="hidden sm:inline-flex"
             >
               Client Portal
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="primary-sap"
+              size="md"
               onClick={onOpenContact}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded text-sm font-semibold text-white bg-[var(--color-primary,#0070F2)] hover:bg-[var(--color-primary-dark,#0058C6)] transition shadow-md shadow-blue-500/25"
+              className="gap-2"
             >
               <span>Schedule Strategic Call</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section - Classic SAP / EY Enterprise Authority */}
       <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/30 border-b border-slate-200">
-        <div className="absolute inset-0 bg-[radial-gradient(#0070F2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary,#0070F2)_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[var(--color-primary,#0070F2)] text-xs font-semibold">
                 <Award className="w-3.5 h-3.5" />
@@ -208,19 +120,23 @@ export default function Template1Enterprise({ onOpenContact }) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button
+                <Button
+                  variant="primary-sap"
+                  size="lg"
                   onClick={onOpenContact}
-                  className="px-7 py-3.5 rounded text-base font-semibold text-white bg-[var(--color-primary,#0070F2)] hover:bg-[var(--color-primary-dark,#0058C6)] transition shadow-lg shadow-blue-500/25 flex items-center gap-2"
+                  className="gap-2 shadow-lg shadow-blue-500/25"
                 >
                   <span>Request Proposal</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
-                <a
+                </Button>
+                <Button
+                  as="a"
                   href="#services"
-                  className="px-7 py-3.5 rounded text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 transition border border-slate-300 shadow-sm"
+                  variant="secondary"
+                  size="lg"
                 >
                   Explore Core Services
-                </a>
+                </Button>
               </div>
 
               {/* Trust Badges */}
@@ -283,17 +199,18 @@ export default function Template1Enterprise({ onOpenContact }) {
                     </div>
                   </div>
 
-                  <button
+                  <Button
+                    variant="primary-sap"
+                    size="md"
                     onClick={onOpenContact}
-                    className="w-full mt-2 py-3 rounded text-sm font-semibold text-white bg-[var(--color-primary,#0070F2)] hover:bg-[var(--color-primary-dark,#0058C6)] transition flex items-center justify-center gap-2"
+                    className="w-full mt-2 gap-2"
                   >
                     <span>Download Enterprise Architecture Whitepaper</span>
                     <ExternalLink className="w-3.5 h-3.5" />
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -301,16 +218,15 @@ export default function Template1Enterprise({ onOpenContact }) {
       {/* Core Services Section with Enterprise Interactive Tabs */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary,#0070F2)]">Capabilities & Offerings</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-dark,#0B192C)] font-display mt-2">
-              Full-Spectrum Technology Transformation
-            </h2>
-            <p className="text-base text-slate-600 mt-3">
-              Organized into dedicated Centers of Excellence with specialized industry squads.
-            </p>
-          </div>
+          <SectionHeader
+            badge="Capabilities & Offerings"
+            badgeClassName="text-[var(--color-primary,#0070F2)]"
+            heading="Full-Spectrum Technology Transformation"
+            headingClassName="text-[var(--color-dark,#0B192C)]"
+            description="Organized into dedicated Centers of Excellence with specialized industry squads."
+            descriptionClassName="text-base"
+            className="mb-14"
+          />
 
           {/* Service Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mb-10 border-b border-slate-200 pb-4">
@@ -321,10 +237,11 @@ export default function Template1Enterprise({ onOpenContact }) {
                 <button
                   key={service.id}
                   onClick={() => setActiveTab(service.id)}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-lg text-sm font-semibold transition ${isActive
+                  className={`flex items-center gap-2.5 px-5 py-3 rounded-lg text-sm font-semibold transition cursor-pointer ${
+                    isActive
                       ? 'bg-[var(--color-primary,#0070F2)] text-white shadow-md shadow-blue-500/20'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                    }`}
+                  }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{service.title}</span>
@@ -336,9 +253,14 @@ export default function Template1Enterprise({ onOpenContact }) {
           {/* Active Tab Card Content */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 lg:p-12 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-10 items-center">
-
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-block px-3 py-1 rounded bg-blue-100/80 text-[var(--color-accent,#003882)] text-xs font-bold">
+                <div
+                  className="inline-block px-3 py-1 rounded text-xs font-bold"
+                  style={{
+                    backgroundColor: 'var(--color-primary-light, #EBF4FE)',
+                    color: 'var(--color-accent, #003882)',
+                  }}
+                >
                   {activeService.tag}
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-dark,#0B192C)] font-display">
@@ -361,13 +283,15 @@ export default function Template1Enterprise({ onOpenContact }) {
                 </div>
 
                 <div className="pt-4 flex items-center gap-4">
-                  <button
+                  <Button
+                    variant="primary-sap"
+                    size="md"
                     onClick={onOpenContact}
-                    className="px-6 py-3 rounded text-sm font-semibold text-white bg-[var(--color-primary,#0070F2)] hover:bg-[var(--color-primary-dark,#0058C6)] transition flex items-center gap-2 shadow-sm"
+                    className="gap-2 shadow-sm"
                   >
                     <span>Consult with a Principal Architect</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Button>
                 </div>
               </div>
 
@@ -397,50 +321,26 @@ export default function Template1Enterprise({ onOpenContact }) {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
       {/* Industries Section */}
       <section id="industries" className="py-20 bg-slate-50 border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary,#0070F2)]">Industry Expertise</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-dark,#0B192C)] font-display mt-2">
-              Engineered for Industry-Specific Scale
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Deep vertical domain knowledge configured with pre-built accelerators.
-            </p>
-          </div>
+          <SectionHeader
+            badge="Industry Expertise"
+            badgeClassName="text-[var(--color-primary,#0070F2)]"
+            heading="Engineered for Industry-Specific Scale"
+            headingClassName="text-[var(--color-dark,#0B192C)]"
+            description="Deep vertical domain knowledge configured with pre-built accelerators."
+            className="mb-14"
+          />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'Manufacturing & Automotive',
-                desc: 'Shop-floor IoT telemetry, supply chain traceability, and S/4HANA discrete manufacturing automation.',
-                metric: '32% Cycle Boost'
-              },
-              {
-                title: 'Retail & Consumer Goods',
-                desc: 'Unified omnichannel commerce, dynamic inventory visibility, and high-frequency order processing.',
-                metric: '99.9% Fill Rate'
-              },
-              {
-                title: 'Logistics & Supply Chain',
-                desc: 'Warehouse mobile tracking, automated freight reconciliation, and real-time fleet analytics.',
-                metric: '4x Fleet Visibility'
-              },
-              {
-                title: 'Financial Services & ERP',
-                desc: 'Automated treasury operations, regulatory reporting compliance, and secure cloud microservices.',
-                metric: 'Zero Audit Lags'
-              }
-            ].map((ind, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-blue-300 transition">
+            {template1Industries.map((ind, idx) => (
+              <Card key={idx} className="p-6">
                 <div className="text-xs font-bold text-[var(--color-primary,#0070F2)] uppercase tracking-wider">{ind.metric}</div>
                 <h3 className="text-lg font-bold text-slate-900 mt-2 mb-2 font-display">{ind.title}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">{ind.desc}</p>
@@ -448,37 +348,43 @@ export default function Template1Enterprise({ onOpenContact }) {
                   <span>Explore Case Study</span>
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* Corporate Call To Action */}
-      <section className="py-20 bg-[var(--color-dark,#0B192C)] text-white relative overflow-hidden">
+      <section
+        className="py-20 text-white relative overflow-hidden"
+        style={{ backgroundColor: 'var(--color-dark, #0B192C)' }}
+      >
         <div className="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-10">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-400">Launch Your 4-5 Day Sprint</span>
           <h2 className="text-3xl sm:text-5xl font-bold font-display mt-3 mb-6">
             Ready to Modernize Your Enterprise Tech Stack?
           </h2>
           <p className="text-slate-300 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Connect directly with Nyabix principal architects to evaluate your SAP, AI, Web or E-Commerce roadmap with customized deployment milestones.
+            Connect directly with Nybix principal architects to evaluate your SAP, AI, Web or E-Commerce roadmap with customized deployment milestones.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <button
+            <Button
+              variant="cta-white"
+              size="lg"
               onClick={onOpenContact}
-              className="px-8 py-3.5 rounded text-base font-semibold text-[var(--color-dark,#0B192C)] bg-white hover:bg-slate-100 transition shadow-lg flex items-center gap-2"
+              className="gap-2"
             >
               <span>Schedule Strategic Consultation</span>
               <ArrowRight className="w-4 h-4 text-[var(--color-primary,#0070F2)]" />
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="primary-sap"
+              size="lg"
               onClick={onOpenContact}
-              className="px-8 py-3.5 rounded text-base font-semibold text-white bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/30"
             >
               Request Custom Quote
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -534,4 +440,3 @@ export default function Template1Enterprise({ onOpenContact }) {
     </div>
   );
 }
-
