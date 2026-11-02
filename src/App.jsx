@@ -61,12 +61,11 @@ export default function App() {
           
           {/* Brand */}
           <div className="flex items-center gap-2.5">
-            <span className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
-              N
-            </span>
-            <span className="font-bold tracking-tight text-white font-display">
-              NYBIX
-            </span>
+            <img 
+              src="/logo/nybix-logo-white.png" 
+              alt="NYBIX Logo" 
+              className="h-6 w-auto object-contain brightness-110"
+            />
           </div>
 
           {/* Template Switcher Tabs */}

@@ -68,13 +68,14 @@ export default function Template3Consultancy({ onOpenContact }) {
       <header className="sticky top-12 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-24 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <div>
-              <span className="text-2xl font-serif font-black tracking-tight text-[#0B192C]">
-                NYBIX
-              </span>
-              <span className="block text-[10px] tracking-widest font-bold uppercase text-blue-700 -mt-1 font-sans">
-                CONSULTING & ADVISORY
-              </span>
+            <div className="flex items-center gap-3">
+              <a href="#" className="flex items-center">
+                <img 
+                  src="/logo/nybix-logo-clean.png" 
+                  alt="NYBIX Consulting & Advisory" 
+                  className="h-9 sm:h-10 w-auto object-contain"
+                />
+              </a>
             </div>
 
             <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
@@ -268,7 +269,13 @@ export default function Template3Consultancy({ onOpenContact }) {
       <footer className="bg-[#0B192C] text-slate-400 py-12 text-xs border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <div className="text-white font-serif font-bold text-lg mb-1">NYBIX ADVISORY & CONSULTING</div>
+            <div className="mb-2">
+              <img 
+                src="/logo/nybix-logo-white.png" 
+                alt="NYBIX Advisory & Consulting" 
+                className="h-7 w-auto object-contain brightness-110"
+              />
+            </div>
             <p className="text-slate-400 text-xs">High-integrity enterprise technology practices.</p>
           </div>
           <div className="flex items-center gap-6 text-slate-400 text-xs">

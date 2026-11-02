@@ -91,12 +91,13 @@ export default function Template2ModernAI({ onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-blue-700 to-blue-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">
-                N
-              </div>
-              <span className="text-xl font-bold tracking-tight text-slate-900 font-display">
-                nybix<span className="text-blue-600">.tech</span>
-              </span>
+              <a href="#" className="flex items-center">
+                <img 
+                  src="/logo/nybix-logo-clean.png" 
+                  alt="NYBIX Tech" 
+                  className="h-8 sm:h-9 w-auto object-contain"
+                />
+              </a>
             </div>
 
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
@@ -427,10 +428,14 @@ export default function Template2ModernAI({ onOpenContact }) {
       {/* Modern Tech Footer */}
       <footer className="bg-white border-t border-slate-200 py-10 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-900">NYBIX TECH</span>
-            <span>•</span>
-            <span>Blue & White Tech Edition</span>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/logo/nybix-logo-clean.png" 
+              alt="NYBIX Tech" 
+              className="h-6 w-auto object-contain"
+            />
+            <span className="text-slate-400">|</span>
+            <span>Enterprise Edition</span>
           </div>
           <div>© 2026 Nybix. Built for enterprise scale and speed.</div>
         </div>

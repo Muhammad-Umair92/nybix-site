@@ -143,17 +143,13 @@ export default function Template1Enterprise({ onOpenContact }) {
           <div className="flex items-center gap-10">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-[#0070F2] flex items-center justify-center text-white font-bold text-xl shadow-md shadow-blue-500/20">
-                N
-              </div>
-              <div>
-                <span className="text-2xl font-extrabold tracking-tight text-[#0B192C] font-display">
-                  NYBIX
-                </span>
-                <span className="block text-[10px] tracking-widest font-semibold uppercase text-[#0070F2] -mt-1">
-                  ENTERPRISE SOLUTIONS
-                </span>
-              </div>
+              <a href="#" className="flex items-center gap-3">
+                <img 
+                  src="/logo/nybix-logo-clean.png" 
+                  alt="NYBIX Enterprise Solutions" 
+                  className="h-9 sm:h-10 w-auto object-contain"
+                />
+              </a>
             </div>
 
             {/* Desktop Nav */}
@@ -489,9 +485,12 @@ export default function Template1Enterprise({ onOpenContact }) {
       <footer className="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 text-white font-bold text-lg font-display mb-3">
-              <span className="w-7 h-7 rounded bg-[#0070F2] flex items-center justify-center text-xs">N</span>
-              <span>NYBIX TECHNOLOGIES</span>
+            <div className="flex items-center gap-2 mb-4">
+              <img 
+                src="/logo/nybix-logo-white.png" 
+                alt="NYBIX Technologies" 
+                className="h-8 w-auto object-contain brightness-110"
+              />
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed mb-4">
               Enterprise technology engineering firm specializing in SAP S/4HANA migrations, autonomous AI workflows, corporate web apps, and digital commerce.
