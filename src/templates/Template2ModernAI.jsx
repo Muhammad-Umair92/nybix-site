@@ -439,3 +439,4 @@ export default function Template2ModernAI({ onOpenContact }) {
     </div>
   );
 }
+

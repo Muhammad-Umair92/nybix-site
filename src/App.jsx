@@ -23,7 +23,6 @@ export default function App() {
   const [activeTemplate, setActiveTemplate] = useState(1);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isCompareOpen, setIsCompareOpen] = useState(false);
-  const [isBriefOpen, setIsBriefOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   // Form state
@@ -60,16 +59,13 @@ export default function App() {
       <div className="sticky top-0 z-50 bg-[#0B192C] text-white border-b border-blue-900/60 shadow-lg px-3 sm:px-6 py-2.5">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
           
-          {/* Brand & Demo Indicator */}
+          {/* Brand */}
           <div className="flex items-center gap-2.5">
             <span className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
               N
             </span>
-            <span className="font-bold tracking-tight text-white font-display hidden sm:inline">
+            <span className="font-bold tracking-tight text-white font-display">
               NYBIX
-            </span>
-            <span className="px-2 py-0.5 rounded bg-blue-950 border border-blue-800 text-blue-300 font-medium">
-              Demo Switcher
             </span>
           </div>
 
@@ -112,20 +108,11 @@ export default function App() {
             </button>
           </div>
 
-          {/* Utility Buttons: Brief & Comparison */}
+          {/* Comparison Action */}
           <div className="flex items-center gap-2">
             <button
-              onClick={() => setIsBriefOpen(true)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-blue-300 hover:text-white transition font-medium border border-slate-700"
-              title="View Requirements Extracted from Voice Call"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">Requirements Brief</span>
-            </button>
-
-            <button
               onClick={() => setIsCompareOpen(true)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-blue-700/80 hover:bg-blue-600 text-white transition font-medium"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-blue-700/80 hover:bg-blue-600 text-white transition font-medium"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>Compare (3 Themes)</span>
@@ -145,97 +132,7 @@ export default function App() {
       </main>
 
       {/* =========================================================================
-          MODAL 1: REQUIREMENTS BRIEF EXTRACTED FROM CALL
-          ========================================================================= */}
-      {isBriefOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 text-slate-900 shadow-2xl relative">
-            <button 
-              onClick={() => setIsBriefOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
-              <CheckCircle2 className="w-4 h-4" /> Extracted From Audio / Video Sync
-            </div>
-            <h2 className="text-2xl font-bold font-display text-slate-900">
-              Nybix Website Requirements Brief
-            </h2>
-            <p className="text-xs text-slate-500 mt-1">
-              Extracted from internal Google Meet discussion between Faizan Saleem, Muhammad Umair & Rehan Ali Khan.
-            </p>
-
-            <div className="mt-6 space-y-4 text-xs">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h3 className="font-bold text-blue-900 text-sm mb-1">Project Objective & Timeline</h3>
-                <p className="text-blue-800 leading-relaxed">
-                  Design & launch the official corporate site for Nybix. Target timeline is a rapid <strong>4 to 5 day sprint</strong> with <strong>3-4 approved templates/themes</strong> for executive sign-off.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-                  <div className="font-bold text-slate-900 mb-1">Roles & Responsibilities</div>
-                  <ul className="space-y-1 text-slate-600">
-                    <li>• <strong>Muhammad Umair:</strong> UI/UX, theme design & frontend templates.</li>
-                    <li>• <strong>Rehan Ali Khan:</strong> Content strategy & copywriting.</li>
-                    <li>• <strong>Faizan Saleem:</strong> Review, approval & business direction.</li>
-                  </ul>
-                </div>
-
-                <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-                  <div className="font-bold text-slate-900 mb-1">Design & Color Preferences</div>
-                  <ul className="space-y-1 text-slate-600">
-                    <li>• <strong>Color Palette:</strong> Crisp White + Enterprise Blue (SAP / EY style).</li>
-                    <li>• <strong>Aesthetic:</strong> Clean, uncluttered, eye-catching, plain yet authoritative.</li>
-                    <li>• <strong>Industry Benchmark:</strong> Top SAP ecosystem partners & EY consulting.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                <h4 className="font-bold text-slate-900 mb-2">Core Business & Service Pillars to Feature:</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="font-bold text-blue-700">1. SAP Services (Core)</span>
-                    <p className="text-[11px] text-slate-500">S/4HANA migration, SAP BTP, Cloud ERP, Basis & Managed Services.</p>
-                  </div>
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="font-bold text-blue-700">2. Enterprise AI</span>
-                    <p className="text-[11px] text-slate-500">Autonomous workflow agents, document parsing, predictive intelligence.</p>
-                  </div>
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="font-bold text-blue-700">3. Web Development</span>
-                    <p className="text-[11px] text-slate-500">Custom B2B portals, corporate websites, high-scale web platforms.</p>
-                  </div>
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="font-bold text-blue-700">4. Mobile Applications</span>
-                    <p className="text-[11px] text-slate-500">iOS & Android field execution apps, warehouse scanning, offline sync.</p>
-                  </div>
-                  <div className="p-2 bg-white rounded border border-slate-200 sm:col-span-2">
-                    <span className="font-bold text-blue-700">5. E-Commerce Development</span>
-                    <p className="text-[11px] text-slate-500">Omnichannel B2B/B2C digital commerce unified directly with ERP inventory.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-end">
-              <button 
-                onClick={() => setIsBriefOpen(false)}
-                className="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs"
-              >
-                Close Brief
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* =========================================================================
-          MODAL 2: COMPARISON MATRIX (All 3 Templates)
+          MODAL: COMPARISON MATRIX (All 3 Templates)
           ========================================================================= */}
       {isCompareOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
@@ -446,3 +343,4 @@ export default function App() {
     </div>
   );
 }
+
