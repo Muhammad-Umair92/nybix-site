@@ -1,131 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Sparkles, 
-  Cpu, 
-  Network, 
-  Layers, 
-  ArrowRight, 
-  ShieldCheck, 
-  Activity, 
-  Terminal, 
-  Zap, 
-  Check, 
-  Boxes, 
-  Database, 
-  Workflow, 
-  Globe, 
-  Smartphone, 
-  ShoppingBag, 
-  ChevronRight, 
-  Lock, 
-  TrendingUp, 
-  Play, 
-  RefreshCw,
-  Server,
-  Code2
+import React, { useState } from 'react';
+import {
+  ArrowRight,
+  ShieldCheck,
+  Terminal,
+  Zap,
+  Check,
+  Workflow,
+  ChevronRight,
+  Sparkles,
 } from 'lucide-react';
+import { template4Solutions, template4SimulatedLogs } from '../data/solutions';
+import Button from '../components/ui/Button';
+import SectionHeader from '../components/ui/SectionHeader';
 
 export default function Template4Futuristic({ onOpenContact }) {
   const [activeSolution, setActiveSolution] = useState(0);
-  const [activeTabMetric, setActiveTabMetric] = useState('enterprise');
-  const [simulatedLogs, setSimulatedLogs] = useState([
-    { time: '10:42:01', level: 'SYS', msg: 'SAP S/4HANA Cloud connection verified. BTP endpoints healthy.', status: 'success' },
-    { time: '10:42:04', level: 'AI-AGENT', msg: 'Document Intelligence parsing 1,200 supplier invoices... 99.8% match rate.', status: 'active' },
-    { time: '10:42:09', level: 'SYNC', msg: 'B2B Commerce catalog updated with real-time warehouse inventory across 8 hubs.', status: 'success' }
-  ]);
+  const [simulatedLogs] = useState(template4SimulatedLogs);
 
-  const solutions = [
-    {
-      id: 'sap-core',
-      title: 'SAP S/4HANA Clean-Core Modernization',
-      badge: 'Flagship Core',
-      tagline: 'Eliminate technical debt and migrate to S/4HANA Cloud with zero operational disruption.',
-      architecture: {
-        layer1: 'Legacy ECC 6.0 / Heterogeneous Databases',
-        layer2: 'Nybix Automated Migration Engine & BTP Integration Suite',
-        layer3: 'Clean-Core S/4HANA Cloud + Custom Fiori Analytics'
-      },
-      benefits: [
-        'Rapid brownfield / greenfield deployment methodology',
-        'Real-time automated financial & supply chain consolidation',
-        'Seamless BTP side-by-side extensibility without core modification',
-        '24/7 continuous observability & Basis performance tuning'
-      ],
-      metric: '45% Faster',
-      metricLabel: 'Migration cycle compared to legacy SI approaches'
-    },
-    {
-      id: 'agentic-ai',
-      title: 'Autonomous Enterprise AI Systems',
-      badge: 'Next-Gen Intelligence',
-      tagline: 'Self-orchestrating AI agents operating directly within your ERP, CRM, and supply chain.',
-      architecture: {
-        layer1: 'Enterprise Unstructured Data & ERP Data Lakes',
-        layer2: 'Nybix Agentic LLM Orchestrator & Multi-Step Reasoning Graph',
-        layer3: 'Autonomous Invoice Matching, Customer Service & Forecasting'
-      },
-      benefits: [
-        'Automated 3-way invoice matching & ERP posting without humans',
-        'Predictive supply chain stockout warning algorithms',
-        'Enterprise-grade private vector databases with zero data leakage',
-        'Domain-tuned copilots for executive decision acceleration'
-      ],
-      metric: '72% Workload',
-      metricLabel: 'Routine administrative tasks fully automated'
-    },
-    {
-      id: 'digital-web',
-      title: 'High-Concurrency Web & Mobile Portals',
-      badge: 'Digital Engineering',
-      tagline: 'Sub-second digital platforms built for millions of transactions, vendor portals, and field teams.',
-      architecture: {
-        layer1: 'Microservices & Enterprise REST/GraphQL APIs',
-        layer2: 'Edge-Rendered Next.js 15 & React Native Unified Runtime',
-        layer3: 'Offline-First Field Applications & B2B Customer Portals'
-      },
-      benefits: [
-        'Sub-50ms global latency for heavy enterprise portal queries',
-        'Field technician apps with robust offline SQLite sync',
-        'Enterprise SSO, Role-Based Access Control (RBAC), SOC2 Type II',
-        'Auto-scaling Kubernetes infrastructure with zero-downtime rollouts'
-      ],
-      metric: '99.99%',
-      metricLabel: 'Guaranteed platform availability SLA'
-    },
-    {
-      id: 'commerce',
-      title: 'Enterprise Omnichannel B2B/B2C Commerce',
-      badge: 'Revenue Velocity',
-      tagline: 'Unified digital commerce engines directly synced with multi-warehouse ERP inventory.',
-      architecture: {
-        layer1: 'SAP Inventory, Tiered Pricing & Warehouse Management',
-        layer2: 'Headless Commerce API & High-Speed Checkout Middleware',
-        layer3: 'Global Multi-Currency, Multi-Brand Digital Storefronts'
-      },
-      benefits: [
-        'B2B custom contract pricing, credit limits & approval workflows',
-        'Instant multi-warehouse inventory updates within seconds',
-        'High-converting mobile-first checkout flows',
-        'Over $150M+ annual transaction throughput capacity'
-      ],
-      metric: '3.2x',
-      metricLabel: 'Average increase in B2B digital order volume'
-    }
-  ];
-
+  const solutions = template4Solutions;
   const currentSolution = solutions[activeSolution];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
-      
       {/* Sleek Floating Enterprise Navbar */}
       <nav className="sticky top-12 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-100 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3">
-              <img 
-                src="/logo/nybix-logo-clean.png" 
-                alt="NYBIX" 
+              <img
+                src="/logo/nybix-logo-clean.png"
+                alt="NYBIX"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
             </a>
@@ -142,13 +46,16 @@ export default function Template4Futuristic({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-3">
-            <button 
+            <Button
+              variant="gradient"
+              size="sm"
+              shape="pill"
               onClick={onOpenContact}
-              className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-[#0070F2] hover:from-blue-700 hover:to-blue-600 transition shadow-md shadow-blue-500/20 flex items-center gap-2"
+              className="gap-2"
             >
               <span>Initiate 4-5 Day Sprint</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Button>
           </div>
         </div>
       </nav>
@@ -159,14 +66,17 @@ export default function Template4Futuristic({ onOpenContact }) {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-8 text-center relative z-10 space-y-6">
-          
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Next-Generation Enterprise Systems Architecture</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 font-display leading-[1.05] max-w-4xl mx-auto">
-            The Operating System for Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-[#0070F2] to-sky-500">SAP & AI Enterprises</span>.
+            The Operating System for Modern{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-[#0070F2] to-sky-500">
+              SAP & AI Enterprises
+            </span>
+            .
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -174,19 +84,25 @@ export default function Template4Futuristic({ onOpenContact }) {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
-            <button 
+            <Button
+              variant="primary-dark"
+              size="lg"
+              shape="pill"
               onClick={onOpenContact}
-              className="px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-slate-950 hover:bg-slate-900 transition shadow-lg flex items-center gap-2.5 group"
+              className="gap-2.5 group"
             >
               <span>Schedule Architecture Review</span>
               <ArrowRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <a 
+            </Button>
+            <Button
+              as="a"
               href="#solutions"
-              className="px-7 py-3.5 rounded-full text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 transition border border-slate-200 shadow-xs"
+              variant="secondary"
+              size="lg"
+              shape="pill"
             >
               Explore Solutions Matrix
-            </a>
+            </Button>
           </div>
 
           {/* Real-time Enterprise Trust Proof Bar */}
@@ -214,23 +130,19 @@ export default function Template4Futuristic({ onOpenContact }) {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* Interactive Solution Configurator */}
       <section id="solutions" className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Interactive Solution Suite</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display mt-2">
-              Architected for Zero Technical Debt
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Select an enterprise discipline below to inspect live architecture layers and documented business velocity.
-            </p>
-          </div>
+          <SectionHeader
+            badge="Interactive Solution Suite"
+            badgeClassName="text-blue-600"
+            heading="Architected for Zero Technical Debt"
+            description="Select an enterprise discipline below to inspect live architecture layers and documented business velocity."
+            className="mb-14"
+          />
 
           {/* Interactive Navigation Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -238,16 +150,18 @@ export default function Template4Futuristic({ onOpenContact }) {
               <button
                 key={sol.id}
                 onClick={() => setActiveSolution(idx)}
-                className={`px-5 py-3 rounded-full text-xs font-semibold transition-all flex items-center gap-2 ${
+                className={`px-5 py-3 rounded-full text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                   activeSolution === idx
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-102'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
                 <span>{sol.title}</span>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                  activeSolution === idx ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                }`}>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full ${
+                    activeSolution === idx ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}
+                >
                   {sol.badge}
                 </span>
               </button>
@@ -257,7 +171,6 @@ export default function Template4Futuristic({ onOpenContact }) {
           {/* Dynamic Solution Showcase Card */}
           <div className="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-10 items-center">
-              
               {/* Left Column: Solution Capabilities */}
               <div className="lg:col-span-6 space-y-6">
                 <div>
@@ -287,13 +200,16 @@ export default function Template4Futuristic({ onOpenContact }) {
                 </div>
 
                 <div className="pt-4 flex items-center gap-4">
-                  <button 
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    shape="pill"
                     onClick={onOpenContact}
-                    className="px-6 py-3 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-md shadow-blue-500/20 flex items-center gap-2"
+                    className="gap-2"
                   >
                     <span>Request Scoping Document</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </Button>
                 </div>
               </div>
 
@@ -346,20 +262,16 @@ export default function Template4Futuristic({ onOpenContact }) {
                       <div className="text-[11px] text-slate-500">Fast Proof-of-Concept</div>
                     </div>
                   </div>
-
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
       {/* Live Agent Telemetry Terminal Preview */}
       <section id="terminal" className="py-20 bg-slate-950 text-white border-t border-slate-800 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest mb-2">
@@ -391,11 +303,15 @@ export default function Template4Futuristic({ onOpenContact }) {
               {simulatedLogs.map((log, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <span className="text-slate-500 select-none">{log.time}</span>
-                  <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                    log.level === 'SYS' ? 'bg-slate-800 text-slate-300' :
-                    log.level === 'AI-AGENT' ? 'bg-blue-900/60 text-blue-300' :
-                    'bg-emerald-950 text-emerald-300'
-                  }`}>
+                  <span
+                    className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                      log.level === 'SYS'
+                        ? 'bg-slate-800 text-slate-300'
+                        : log.level === 'AI-AGENT'
+                        ? 'bg-blue-900/60 text-blue-300'
+                        : 'bg-emerald-950 text-emerald-300'
+                    }`}
+                  >
                     [{log.level}]
                   </span>
                   <span className="text-slate-300 leading-relaxed flex-1">{log.msg}</span>
@@ -412,32 +328,28 @@ export default function Template4Futuristic({ onOpenContact }) {
                 <span>•</span>
                 <span>Uptime: <strong className="text-white">99.99%</strong></span>
               </div>
-              <button 
+              <button
                 onClick={onOpenContact}
-                className="text-blue-400 hover:text-white transition flex items-center gap-1.5 text-xs font-semibold"
+                className="text-blue-400 hover:text-white transition flex items-center gap-1.5 text-xs font-semibold cursor-pointer"
               >
                 <span>Request Technical Deep Dive</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* The Nybix Edge vs Traditional Consultancies */}
       <section id="advantage" className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600">The Modern Advantage</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display mt-2">
-              Why Visionary Enterprises Choose Nybix
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Replacing bloated 6-month consulting roadmaps with rapid, high-velocity engineering.
-            </p>
-          </div>
+          <SectionHeader
+            badge="The Modern Advantage"
+            badgeClassName="text-blue-600"
+            heading="Why Visionary Enterprises Choose Nybix"
+            description="Replacing bloated 6-month consulting roadmaps with rapid, high-velocity engineering."
+            className="mb-16"
+          />
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-8 rounded-2xl bg-blue-50/60 border border-blue-200/80 space-y-4">
@@ -473,7 +385,6 @@ export default function Template4Futuristic({ onOpenContact }) {
               <div className="text-xs font-semibold text-[#0070F2]">🤖 Real Operational EBITDA Lift</div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -481,9 +392,9 @@ export default function Template4Futuristic({ onOpenContact }) {
       <footer className="bg-slate-950 text-slate-400 py-16 text-xs border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 space-y-4">
-            <img 
-              src="/logo/nybix-logo-white.png" 
-              alt="NYBIX Technologies" 
+            <img
+              src="/logo/nybix-logo-white.png"
+              alt="NYBIX Technologies"
               className="h-8 w-auto object-contain brightness-110"
             />
             <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
@@ -516,15 +427,13 @@ export default function Template4Futuristic({ onOpenContact }) {
           <div>
             <h4 className="text-white font-bold uppercase tracking-wider mb-3">Engagement</h4>
             <ul className="space-y-2">
-              <li><button onClick={onOpenContact} className="hover:text-white transition text-left">Schedule Briefing</button></li>
-              <li><button onClick={onOpenContact} className="hover:text-white transition text-left">Request RFP Audit</button></li>
-              <li><button onClick={onOpenContact} className="hover:text-white transition text-left">Client Portal Access</button></li>
+              <li><button onClick={onOpenContact} className="hover:text-white transition text-left cursor-pointer">Schedule Briefing</button></li>
+              <li><button onClick={onOpenContact} className="hover:text-white transition text-left cursor-pointer">Request RFP Audit</button></li>
+              <li><button onClick={onOpenContact} className="hover:text-white transition text-left cursor-pointer">Client Portal Access</button></li>
             </ul>
           </div>
         </div>
       </footer>
-
     </div>
   );
 }
-
