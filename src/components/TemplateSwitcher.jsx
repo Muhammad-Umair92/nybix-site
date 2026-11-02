@@ -83,7 +83,7 @@ export default function TemplateSwitcher({
             href={`tel:${companyInfo.phones.pkCall}`}
             className="hidden lg:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition text-[11px]"
           >
-            <span className="text-emerald-400 font-bold">PK:</span> +92 300 1692249
+            <span className="text-emerald-400 font-bold">PK:</span> {companyInfo.phones.pkDisplay}
           </a>
         </div>
 

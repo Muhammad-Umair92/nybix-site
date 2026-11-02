@@ -446,14 +446,14 @@ export default function Template2ModernAI({ onOpenContact }) {
             <span className="text-slate-400">|</span>
             <span>Enterprise Systems & Offshore Squads</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-600">
-            <a href="mailto:nyabix.tech@gmail.com" className="hover:text-blue-600 transition">nyabix.tech@gmail.com</a>
+          <div className="flex flex-wrap items-center gap-4 text-slate-600">
+            <a href={`mailto:${companyInfo.email}`} className="hover:text-blue-600 transition">{companyInfo.email}</a>
             <span>•</span>
-            <a href="tel:+923001692249" className="hover:text-blue-600 transition">+92 300 1692249</a>
+            <a href={`tel:${companyInfo.phones.pkCall}`} className="hover:text-blue-600 transition">{companyInfo.phones.pkDisplay}</a>
             <span>•</span>
-            <a href="tel:+14698052733" className="hover:text-blue-600 transition">+1 (469) 805-2733</a>
+            <a href={`tel:${companyInfo.phones.usCall}`} className="hover:text-blue-600 transition">{companyInfo.phones.usDisplay}</a>
           </div>
-          <div>© 2026 Nyabix Technologies. Dallas (USA) • Karachi (PK).</div>
+          <div>© 2026 Nyabix Technologies. {companyInfo.locations}.</div>
         </div>
       </footer>
     </div>

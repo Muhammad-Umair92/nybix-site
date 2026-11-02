@@ -80,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
                 <Phone className="w-3 h-3" />
               </div>
-              <span>PK: +92 300 1692249</span>
+              <span>PK: {companyInfo.phones.pkDisplay}</span>
             </a>
             <a
               href={`tel:${companyInfo.phones.usCall}`}
