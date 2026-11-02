@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Building2, 
-  Cpu, 
-  Globe, 
-  Smartphone, 
-  ShoppingBag, 
-  ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
-  BarChart3, 
-  Users2, 
-  Layers, 
+import {
+  Building2,
+  Cpu,
+  Globe,
+  Smartphone,
+  ShoppingBag,
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  BarChart3,
+  Users2,
+  Layers,
   Sparkles,
   ChevronRight,
   PhoneCall,
@@ -127,8 +127,8 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
           <div className="flex items-center gap-4">
             <span>Global Delivery Excellence</span>
-            <button 
-              onClick={onOpenContact} 
+            <button
+              onClick={onOpenContact}
               className="text-blue-400 hover:text-white transition font-medium"
             >
               Request Consultation →
@@ -144,9 +144,9 @@ export default function Template1Enterprise({ onOpenContact }) {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <a href="#" className="flex items-center gap-3">
-                <img 
-                  src="/logo/nybix-logo-clean.png" 
-                  alt="NYBIX Enterprise Solutions" 
+                <img
+                  src="/logo/nybix-logo-clean.png"
+                  alt="NYBIX Enterprise Solutions"
                   className="h-9 sm:h-10 w-auto object-contain"
                 />
               </a>
@@ -165,13 +165,13 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <button 
+            <button
               onClick={onOpenContact}
               className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded text-sm font-semibold text-[#0070F2] bg-blue-50 hover:bg-blue-100 transition border border-blue-200"
             >
               Client Portal
             </button>
-            <button 
+            <button
               onClick={onOpenContact}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded text-sm font-semibold text-white bg-[#0070F2] hover:bg-[#0058C6] transition shadow-md shadow-blue-500/25"
             >
@@ -185,10 +185,10 @@ export default function Template1Enterprise({ onOpenContact }) {
       {/* Hero Section - Classic SAP / EY Enterprise Authority */}
       <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/30 border-b border-slate-200">
         <div className="absolute inset-0 bg-[radial-gradient(#0070F2_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
+
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#0070F2] text-xs font-semibold">
                 <Award className="w-3.5 h-3.5" />
@@ -205,14 +205,14 @@ export default function Template1Enterprise({ onOpenContact }) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button 
+                <button
                   onClick={onOpenContact}
                   className="px-7 py-3.5 rounded text-base font-semibold text-white bg-[#0070F2] hover:bg-[#0058C6] transition shadow-lg shadow-blue-500/25 flex items-center gap-2"
                 >
                   <span>Request Proposal</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <a 
+                <a
                   href="#services"
                   className="px-7 py-3.5 rounded text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 transition border border-slate-300 shadow-sm"
                 >
@@ -280,7 +280,7 @@ export default function Template1Enterprise({ onOpenContact }) {
                     </div>
                   </div>
 
-                  <button 
+                  <button
                     onClick={onOpenContact}
                     className="w-full mt-2 py-3 rounded text-sm font-semibold text-white bg-[#0070F2] hover:bg-[#0058C6] transition flex items-center justify-center gap-2"
                   >
@@ -298,7 +298,7 @@ export default function Template1Enterprise({ onOpenContact }) {
       {/* Core Services Section with Enterprise Interactive Tabs */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-wider text-[#0070F2]">Capabilities & Offerings</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0B192C] font-display mt-2">
@@ -318,11 +318,10 @@ export default function Template1Enterprise({ onOpenContact }) {
                 <button
                   key={service.id}
                   onClick={() => setActiveTab(service.id)}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-lg text-sm font-semibold transition ${
-                    isActive 
-                      ? 'bg-[#0070F2] text-white shadow-md shadow-blue-500/20' 
+                  className={`flex items-center gap-2.5 px-5 py-3 rounded-lg text-sm font-semibold transition ${isActive
+                      ? 'bg-[#0070F2] text-white shadow-md shadow-blue-500/20'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{service.title}</span>
@@ -334,7 +333,7 @@ export default function Template1Enterprise({ onOpenContact }) {
           {/* Active Tab Card Content */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 lg:p-12 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-10 items-center">
-              
+
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-block px-3 py-1 rounded bg-blue-100/80 text-[#003882] text-xs font-bold">
                   {activeService.tag}
@@ -359,7 +358,7 @@ export default function Template1Enterprise({ onOpenContact }) {
                 </div>
 
                 <div className="pt-4 flex items-center gap-4">
-                  <button 
+                  <button
                     onClick={onOpenContact}
                     className="px-6 py-3 rounded text-sm font-semibold text-white bg-[#0070F2] hover:bg-[#0058C6] transition flex items-center gap-2 shadow-sm"
                   >
@@ -464,14 +463,14 @@ export default function Template1Enterprise({ onOpenContact }) {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <button 
+            <button
               onClick={onOpenContact}
               className="px-8 py-3.5 rounded text-base font-semibold text-[#0B192C] bg-white hover:bg-slate-100 transition shadow-lg flex items-center gap-2"
             >
               <span>Schedule Strategic Consultation</span>
               <ArrowRight className="w-4 h-4 text-[#0070F2]" />
             </button>
-            <button 
+            <button
               onClick={onOpenContact}
               className="px-8 py-3.5 rounded text-base font-semibold text-white bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/30"
             >
@@ -486,9 +485,9 @@ export default function Template1Enterprise({ onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/logo/nybix-logo-white.png" 
-                alt="NYBIX Technologies" 
+              <img
+                src="/logo/nybix-logo-white.png"
+                alt="NYBIX Technologies"
                 className="h-8 w-auto object-contain brightness-110"
               />
             </div>

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Sparkles, 
-  Cpu, 
-  Database, 
-  Globe2, 
-  Smartphone, 
-  ShoppingBag, 
-  ArrowUpRight, 
-  Terminal, 
-  Workflow, 
-  Zap, 
-  ShieldAlert, 
+import {
+  Sparkles,
+  Cpu,
+  Database,
+  Globe2,
+  Smartphone,
+  ShoppingBag,
+  ArrowUpRight,
+  Terminal,
+  Workflow,
+  Zap,
+  ShieldAlert,
   CheckCircle,
   Sliders,
   Calculator,
@@ -75,8 +75,8 @@ export default function Template2ModernAI({ onOpenContact }) {
     }
   ];
 
-  const filteredServices = selectedFilter === 'all' 
-    ? allServices 
+  const filteredServices = selectedFilter === 'all'
+    ? allServices
     : allServices.filter(s => s.category === selectedFilter);
 
   // Quick interactive estimation calculation
@@ -85,41 +85,41 @@ export default function Template2ModernAI({ onOpenContact }) {
 
   return (
     <div className="min-h-screen bg-[#FAFAFC] text-slate-900 font-sans">
-      
+
       {/* Modern Minimal Navigation */}
       <header className="sticky top-12 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2.5">
               <a href="#" className="flex items-center">
-                <img 
-                  src="/logo/nybix-logo-clean.png" 
-                  alt="NYBIX Tech" 
+                <img
+                  src="/logo/nybix-logo-clean.png"
+                  alt="NYBIX Tech"
                   className="h-8 sm:h-9 w-auto object-contain"
                 />
               </a>
             </div>
 
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-              <button 
+              <button
                 onClick={() => setSelectedFilter('sap')}
                 className={`hover:text-blue-600 transition ${selectedFilter === 'sap' ? 'text-blue-600 font-semibold' : ''}`}
               >
                 SAP Systems
               </button>
-              <button 
+              <button
                 onClick={() => setSelectedFilter('ai')}
                 className={`hover:text-blue-600 transition ${selectedFilter === 'ai' ? 'text-blue-600 font-semibold' : ''}`}
               >
                 AI & Agents
               </button>
-              <button 
+              <button
                 onClick={() => setSelectedFilter('web')}
                 className={`hover:text-blue-600 transition ${selectedFilter === 'web' ? 'text-blue-600 font-semibold' : ''}`}
               >
                 Web & Mobile
               </button>
-              <button 
+              <button
                 onClick={() => setSelectedFilter('ecom')}
                 className={`hover:text-blue-600 transition ${selectedFilter === 'ecom' ? 'text-blue-600 font-semibold' : ''}`}
               >
@@ -132,7 +132,7 @@ export default function Template2ModernAI({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-3">
-            <button 
+            <button
               onClick={onOpenContact}
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-md shadow-blue-500/20 flex items-center gap-2"
             >
@@ -162,14 +162,14 @@ export default function Template2ModernAI({ onOpenContact }) {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
-            <button 
+            <button
               onClick={onOpenContact}
               className="px-8 py-3.5 rounded-lg text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-lg shadow-blue-600/25 flex items-center gap-2"
             >
               <span>Start Your Implementation</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
-            <a 
+            <a
               href="#calculator"
               className="px-8 py-3.5 rounded-lg text-base font-semibold text-slate-700 bg-white hover:bg-slate-100 transition border border-slate-300 shadow-xs"
             >
@@ -197,7 +197,7 @@ export default function Template2ModernAI({ onOpenContact }) {
       {/* Interactive Service Filter Grid */}
       <section className="py-20 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-blue-600">The Nybix Arsenal</span>
@@ -220,11 +220,10 @@ export default function Template2ModernAI({ onOpenContact }) {
                 <button
                   key={f.id}
                   onClick={() => setSelectedFilter(f.id)}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition ${
-                    selectedFilter === f.id
+                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition ${selectedFilter === f.id
                       ? 'bg-blue-600 text-white shadow-sm'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                  }`}
+                    }`}
                 >
                   {f.label}
                 </button>
@@ -237,7 +236,7 @@ export default function Template2ModernAI({ onOpenContact }) {
             {filteredServices.map((srv, idx) => {
               const Icon = srv.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all p-6 flex flex-col justify-between group"
                 >
@@ -274,7 +273,7 @@ export default function Template2ModernAI({ onOpenContact }) {
                     <span className="text-xs font-semibold text-emerald-600">
                       ✓ {srv.highlight}
                     </span>
-                    <button 
+                    <button
                       onClick={onOpenContact}
                       className="text-blue-600 hover:text-blue-800 transition"
                     >
@@ -359,7 +358,7 @@ export default function Template2ModernAI({ onOpenContact }) {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              
+
               {/* Controls */}
               <div className="space-y-6">
                 <div>
@@ -367,10 +366,10 @@ export default function Template2ModernAI({ onOpenContact }) {
                     <span>Active Team / Users:</span>
                     <span className="text-blue-400 font-bold">{teamSize} Users</span>
                   </div>
-                  <input 
-                    type="range" 
-                    min="10" 
-                    max="500" 
+                  <input
+                    type="range"
+                    min="10"
+                    max="500"
                     step="10"
                     value={teamSize}
                     onChange={(e) => setTeamSize(Number(e.target.value))}
@@ -385,11 +384,10 @@ export default function Template2ModernAI({ onOpenContact }) {
                       <button
                         key={c}
                         onClick={() => setInfraComplexity(c)}
-                        className={`py-2 text-xs font-semibold rounded capitalize transition ${
-                          infraComplexity === c 
-                            ? 'bg-blue-600 text-white' 
+                        className={`py-2 text-xs font-semibold rounded capitalize transition ${infraComplexity === c
+                            ? 'bg-blue-600 text-white'
                             : 'bg-slate-800 text-slate-400 hover:text-white'
-                        }`}
+                          }`}
                       >
                         {c}
                       </button>
@@ -412,7 +410,7 @@ export default function Template2ModernAI({ onOpenContact }) {
                   Target Rapid Prototype Timeline: <span className="font-bold text-emerald-400">{estimatedDays}</span>
                 </div>
 
-                <button 
+                <button
                   onClick={onOpenContact}
                   className="w-full py-3 rounded text-sm font-semibold text-slate-900 bg-white hover:bg-slate-100 transition shadow-md"
                 >
@@ -429,9 +427,9 @@ export default function Template2ModernAI({ onOpenContact }) {
       <footer className="bg-white border-t border-slate-200 py-10 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img 
-              src="/logo/nybix-logo-clean.png" 
-              alt="NYBIX Tech" 
+            <img
+              src="/logo/nybix-logo-clean.png"
+              alt="NYBIX Tech"
               className="h-6 w-auto object-contain"
             />
             <span className="text-slate-400">|</span>
