@@ -1,25 +1,29 @@
 /**
- * Template 1 — Industry vertical cards
+ * Template 1 — Industry vertical cards featuring Real Clients from the brief
  */
 export const template1Industries = [
   {
-    title: 'Manufacturing & Automotive',
-    desc: 'Shop-floor IoT telemetry, supply chain traceability, and S/4HANA discrete manufacturing automation.',
-    metric: '32% Cycle Boost',
+    title: 'IMC (Indus Motor Company)',
+    desc: 'Unified Next.js web & React Native mobile e-commerce ecosystem with automated inventory and order tracking.',
+    metric: 'Toyota Pakistan Digital',
+    tag: 'Automotive & Retail',
   },
   {
-    title: 'Retail & Consumer Goods',
-    desc: 'Unified omnichannel commerce, dynamic inventory visibility, and high-frequency order processing.',
-    metric: '99.9% Fill Rate',
+    title: 'PARCO (Pak-Arab Refinery)',
+    desc: 'Turnkey SAP SF Ariba procurement integration connecting refinery supply chain with Oracle databases.',
+    metric: '60% Faster PO Cycles',
+    tag: 'Energy & Refining',
   },
   {
-    title: 'Logistics & Supply Chain',
-    desc: 'Warehouse mobile tracking, automated freight reconciliation, and real-time fleet analytics.',
-    metric: '4x Fleet Visibility',
+    title: 'PSO (Pakistan State Oil)',
+    desc: 'AP Console automated OCR document parsing and 3-way invoice matching across 25,000+ monthly manifests.',
+    metric: '99.8% Match Accuracy',
+    tag: 'Fuel Logistics',
   },
   {
-    title: 'Financial Services & ERP',
-    desc: 'Automated treasury operations, regulatory reporting compliance, and secure cloud microservices.',
-    metric: 'Zero Audit Lags',
+    title: 'Global Financial & Enterprise ERP',
+    desc: 'Clean-core SAP S/4HANA migrations, SOC2 compliance, automated treasury workflows, and 24/7 offshore support.',
+    metric: 'Zero Downtime',
+    tag: 'Enterprise & Banking',
   },
 ];

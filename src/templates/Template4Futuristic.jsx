@@ -478,9 +478,14 @@ export default function Template4Futuristic({ onOpenContact }) {
               className="h-8 w-auto object-contain brightness-110"
             />
             <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
-              Enterprise technology firm delivering mission-critical SAP S/4HANA migrations, autonomous AI agent platforms, and scalable digital commerce architectures.
+              Enterprise technology firm delivering SAP SF Ariba integrations, proprietary AI products (AP Console & Trip Planner), and 24/7 dedicated offshore engineering squads.
             </p>
-            <div className="text-slate-500 text-[11px]">© 2026 Nybix Inc. Enterprise Systems Division.</div>
+            <div className="space-y-1 text-slate-300 text-[11px] pt-1">
+              <div>Email: <a href="mailto:nyabix.tech@gmail.com" className="text-blue-400 hover:underline">nyabix.tech@gmail.com</a></div>
+              <div>PK: <a href="tel:+923001692249" className="hover:text-white transition">+92 300 1NYABIX / +92 300 1692249</a></div>
+              <div>USA: <a href="tel:+14698052733" className="hover:text-white transition">+1 (469) 805-2733</a></div>
+            </div>
+            <div className="text-slate-500 text-[11px] pt-2">© 2026 Nyabix Technologies. Dallas (USA) • Karachi (PK).</div>
           </div>
 
           <div>

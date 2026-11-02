@@ -1,35 +1,40 @@
 /**
- * Template 3 — Executive case studies
+ * Real Executive Case Studies (IMC, PARCO, PSO)
+ * Sourced directly from official client brief (Nyabix_Website_Details.md & WhatsApp scoping)
  */
+
 export const template3CaseStudies = [
   {
-    client: 'Global Automotive Tier-1 Supplier',
-    sector: 'Automotive & Discrete Manufacturing',
+    client: 'IMC (Indus Motor Company - Toyota)',
+    sector: 'Automotive & Digital Commerce',
     challenge:
-      'Fragmented legacy ERP (ECC 6.0) causing 48-hour delays in supply chain reconciliation and inventory blind spots across 12 manufacturing plants.',
+      'Indus Motor Company needed a centralized digital platform to manage online operations, provide customers with a seamless shopping experience across web and mobile devices, and simplify real-time order and inventory management.',
     solution:
-      'Turnkey SAP S/4HANA migration orchestrated by Nybix with custom BTP extension apps for shop-floor tracking and real-time supplier EDI connectivity.',
+      'Nybix designed and developed a complete full-stack e-commerce ecosystem featuring a modern responsive Next.js/React website, native-feel iOS & Android mobile applications built on React Native, centralized admin dashboard, secure payment gateway, and scalable Node.js/PostgreSQL APIs.',
     impact:
-      'Zero-downtime cutover over a holiday weekend; 42% reduction in material holding costs; real-time visibility across all 12 global plants.',
+      'Established unified web & mobile shopping experience across Pakistan; automated order tracking and catalog management; created a resilient, scalable foundation for future digital expansion.',
+    tech: 'React.js, Next.js, React Native, Node.js, Express, PostgreSQL, Docker',
   },
   {
-    client: 'Omnichannel Fashion & Apparel Retailer',
-    sector: 'Consumer Goods & Retail',
+    client: 'PARCO (Pak-Arab Refinery Limited)',
+    sector: 'Energy & Petrochemical Infrastructure',
     challenge:
-      'High customer churn and dropped cart rates during peak flash sales with disconnect between online Shopify frontend and backend warehouse ERP.',
+      'Complex multi-system procurement across refinery operations, marine terminals, and cross-country pipeline networks, resulting in delayed vendor reconciliations and siloed Oracle/SAP data.',
     solution:
-      'Re-architected headless commerce engine unified with SAP S/4HANA inventory and AI-powered personalized recommendation models.',
+      'Nybix architected an enterprise integration bridge unifying SAP SF Ariba procurement with legacy Oracle databases and SAP S/4HANA core, implementing clean-core BTP extension services.',
     impact:
-      'Sub-200ms page loads during Black Friday peak; 34% increase in average order value (AOV); 99.99% uptime with $40M+ throughput.',
+      '60% acceleration in purchase order approval cycle times; unified procurement visibility across refinery operations; 100% compliance with corporate audit governance.',
+    tech: 'SAP S/4HANA, SF Ariba, Oracle Cloud ERP, SAP BTP, Custom Fiori',
   },
   {
-    client: 'Multi-Region Industrial Logistics Fleet',
-    sector: 'Transportation & Logistics',
+    client: 'PSO (Pakistan State Oil)',
+    sector: 'National Fuel Distribution & Supply Chain',
     challenge:
-      'Manual paper-based dispatch and invoice reconciliation leading to 30-day payment cycles and uncollected demurrage claims.',
+      'Manual reconciliation of over 25,000 monthly high-volume paper manifests and supplier invoices across nationwide fuel depots, leading to invoice backlogs and demurrage exposure.',
     solution:
-      'Bespoke mobile field execution app (iOS & Android) with automated OCR document capture and instant SAP billing integration.',
+      'Nybix deployed the proprietary AP Console with custom document intelligence and computer vision models for automated 3-way matching and direct SAP financial posting.',
     impact:
-      'DSO (Days Sales Outstanding) decreased from 31 days to 6 days; automated processing of 15,000+ monthly delivery manifests.',
+      'Automated processing of 25,000+ monthly delivery manifests with 99.8% OCR match accuracy; 5-day reduction in Days Sales Outstanding (DSO); zero demurrage claims.',
+    tech: 'AP Console, Computer Vision, OCR Models, SAP RFCs, PostgreSQL',
   },
 ];

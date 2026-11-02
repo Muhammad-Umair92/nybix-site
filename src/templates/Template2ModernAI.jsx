@@ -437,7 +437,7 @@ export default function Template2ModernAI({ onOpenContact }) {
 
       {/* Modern Tech Footer */}
       <footer className="bg-white border-t border-slate-200 py-10 text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
               src="/logo/nybix-logo-clean.png"
@@ -445,9 +445,16 @@ export default function Template2ModernAI({ onOpenContact }) {
               className="h-6 w-auto object-contain"
             />
             <span className="text-slate-400">|</span>
-            <span>Enterprise Edition</span>
+            <span>Enterprise Systems & Offshore Squads</span>
           </div>
-          <div>© 2026 Nybix. Built for enterprise scale and speed.</div>
+          <div className="flex items-center gap-4 text-slate-600">
+            <a href="mailto:nyabix.tech@gmail.com" className="hover:text-blue-600 transition">nyabix.tech@gmail.com</a>
+            <span>•</span>
+            <a href="tel:+923001692249" className="hover:text-blue-600 transition">+92 300 1692249</a>
+            <span>•</span>
+            <a href="tel:+14698052733" className="hover:text-blue-600 transition">+1 (469) 805-2733</a>
+          </div>
+          <div>© 2026 Nyabix Technologies. Dallas (USA) • Karachi (PK).</div>
         </div>
       </footer>
     </div>

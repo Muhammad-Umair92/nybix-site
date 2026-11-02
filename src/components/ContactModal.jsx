@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Check, Send } from 'lucide-react';
+import { Check, Send, Mail, Phone, MapPin } from 'lucide-react';
 import Modal from './ui/Modal';
+import { companyInfo } from '../data/company';
 
 /**
- * Contact form modal extracted from App.jsx.
+ * Contact form modal with official company contact details from the brief.
  */
 export default function ContactModal({ isOpen, onClose }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -11,7 +12,7 @@ export default function ContactModal({ isOpen, onClose }) {
     name: '',
     email: '',
     company: '',
-    service: 'SAP Enterprise Solutions',
+    service: 'SAP & SF Ariba Integrations',
     message: '',
   });
 
@@ -25,14 +26,14 @@ export default function ContactModal({ isOpen, onClose }) {
         name: '',
         email: '',
         company: '',
-        service: 'SAP Enterprise Solutions',
+        service: 'SAP & SF Ariba Integrations',
         message: '',
       });
     }, 2500);
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} maxWidth="max-w-lg">
+    <Modal isOpen={isOpen} onClose={onClose} maxWidth="max-w-xl">
       {formSubmitted ? (
         <div className="text-center py-8 space-y-3">
           <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
@@ -48,16 +49,49 @@ export default function ContactModal({ isOpen, onClose }) {
         </div>
       ) : (
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+          <span
+            className="text-xs font-bold uppercase tracking-wider"
+            style={{ color: 'var(--color-primary, #0070F2)' }}
+          >
             Direct Engagement
           </span>
           <h3 className="text-xl font-bold font-display text-slate-900 mt-1 mb-1">
-            Schedule Scoping Session
+            Schedule Strategic Scoping Session
           </h3>
-          <p className="text-xs text-slate-500 mb-6">
-            Discuss SAP S/4HANA migration, AI agent automation, web apps, or
-            e-commerce scale.
+          <p className="text-xs text-slate-500 mb-4">
+            Discuss SAP/SF Ariba, AI automation, AP Console, web/mobile apps, or dedicated offshore engineering squads.
           </p>
+
+          {/* Direct Contact Info Banner */}
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 mb-5 grid sm:grid-cols-2 gap-2 text-[11px] text-slate-700">
+            <a
+              href={`mailto:${companyInfo.email}`}
+              className="flex items-center gap-2 hover:text-blue-600 transition"
+            >
+              <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <Mail className="w-3 h-3" />
+              </div>
+              <span className="truncate">{companyInfo.email}</span>
+            </a>
+            <a
+              href={`tel:${companyInfo.phones.pkCall}`}
+              className="flex items-center gap-2 hover:text-blue-600 transition"
+            >
+              <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <Phone className="w-3 h-3" />
+              </div>
+              <span>PK: +92 300 1692249</span>
+            </a>
+            <a
+              href={`tel:${companyInfo.phones.usCall}`}
+              className="flex items-center gap-2 hover:text-blue-600 transition sm:col-span-2"
+            >
+              <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <Phone className="w-3 h-3" />
+              </div>
+              <span>USA: {companyInfo.phones.usDisplay}</span>
+            </a>
+          </div>
 
           <form onSubmit={handleFormSubmit} className="space-y-3 text-xs">
             <div>
@@ -94,12 +128,12 @@ export default function ContactModal({ isOpen, onClose }) {
               </div>
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">
-                  Company
+                  Company / Organization
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Company Name"
+                  placeholder="e.g. IMC, PARCO, PSO"
                   value={formData.company}
                   onChange={(e) =>
                     setFormData({ ...formData, company: e.target.value })
@@ -120,12 +154,13 @@ export default function ContactModal({ isOpen, onClose }) {
                 }
                 className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
               >
-                <option>SAP Enterprise Solutions (S/4HANA)</option>
-                <option>Enterprise AI & Autonomous Agents</option>
-                <option>Custom Web Application Development</option>
-                <option>Mobile App Development (iOS/Android)</option>
-                <option>Omnichannel E-Commerce Platforms</option>
-                <option>Full Multi-Disciplinary Transformation</option>
+                <option>SAP & SF Ariba Integrations (S/4HANA & Oracle)</option>
+                <option>Enterprise AI & AP Console Autonomous Invoicing</option>
+                <option>Mobile App Development (iOS, Android, React Native, Flutter)</option>
+                <option>Custom Web & High-Volume E-Commerce (Shopify Plus)</option>
+                <option>Dedicated Offshore Engineering & Support Squads</option>
+                <option>Proprietary Products (AP Console / Trip Planner)</option>
+                <option>Full Multi-Disciplinary Digital Transformation</option>
               </select>
             </div>
 
@@ -135,7 +170,7 @@ export default function ContactModal({ isOpen, onClose }) {
               </label>
               <textarea
                 rows="3"
-                placeholder="Tell us about your timeline, current system, and goals..."
+                placeholder="Tell us about your timeline, current ERP/tech system, and modernization goals..."
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -146,7 +181,8 @@ export default function ContactModal({ isOpen, onClose }) {
 
             <button
               type="submit"
-              className="w-full mt-2 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-md flex items-center justify-center gap-2"
+              className="w-full mt-2 py-3 rounded-lg text-sm font-semibold text-white transition shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              style={{ backgroundColor: 'var(--color-primary, #0070F2)' }}
             >
               <span>Send Consultation Request</span>
               <Send className="w-3.5 h-3.5" />

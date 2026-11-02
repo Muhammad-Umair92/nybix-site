@@ -1,109 +1,135 @@
 /**
- * Template 4 — Solutions matrix
+ * Template 4 — Solutions matrix including Proprietary Products (AP Console & Trip Planner)
  */
 export const template4Solutions = [
   {
-    id: 'sap-core',
-    title: 'SAP S/4HANA Clean-Core Modernization',
-    badge: 'Flagship Core',
+    id: 'ap-console',
+    title: 'AP Console (Proprietary AI Product)',
+    badge: 'Proprietary AI',
     tagline:
-      'Eliminate technical debt and migrate to S/4HANA Cloud with zero operational disruption.',
+      'Autonomous accounts payable engine for automated 3-way invoice matching and instant SAP / Oracle posting.',
     architecture: {
-      layer1: 'Legacy ECC 6.0 / Heterogeneous Databases',
-      layer2: 'Nybix Automated Migration Engine & BTP Integration Suite',
-      layer3: 'Clean-Core S/4HANA Cloud + Custom Fiori Analytics',
+      layer1: 'Unstructured Supplier Invoices (PDF/Scans/EDI) & ERP Data',
+      layer2: 'Nybix AP Console OCR Vision & Multi-Step Reasoning Engine',
+      layer3: 'Direct SAP S/4HANA & Oracle Line-Item Posting with Zero Humans',
     },
     benefits: [
-      'Rapid brownfield / greenfield deployment methodology',
-      'Real-time automated financial & supply chain consolidation',
+      'Automated 3-way matching against Purchase Orders & Goods Receipts',
+      'Sub-second multi-page invoice parsing with 99.8% field accuracy',
+      'Direct RFC and BTP connector for SAP S/4HANA, SF Ariba & Oracle',
+      'Proven at scale across enterprise fuel and manufacturing leaders (PSO)',
+    ],
+    metric: '75% Faster',
+    metricLabel: 'Invoice processing cycle with zero manual data entry',
+  },
+  {
+    id: 'trip-planner',
+    title: 'Trip Planner (Proprietary AI Product)',
+    badge: 'Smart Logistics AI',
+    tagline:
+      'Intelligent corporate travel and fleet route planning engine with real-time budget and policy optimization.',
+    architecture: {
+      layer1: 'Flight/Hotel APIs, Fleet Telematics & Corporate Travel Policies',
+      layer2: 'Nybix Itinerary Reasoning Graph & Cost-Optimization Model',
+      layer3: 'Executive Mobile Booking Interface & Automated ERP Cost-Center Sync',
+    },
+    benefits: [
+      'Multi-modal route optimization taking cost, time, and safety into account',
+      'Real-time corporate travel compliance and approval automation',
+      'Predictive disruption alerts with automated rebooking options',
+      'Direct synchronization with corporate calendar and ERP cost centers',
+    ],
+    metric: '35% Saved',
+    metricLabel: 'In administrative travel planning & corporate expense overhead',
+  },
+  {
+    id: 'sap-ariba',
+    title: 'SAP S/4HANA, SF Ariba & Oracle Bridges',
+    badge: 'Flagship Core',
+    tagline:
+      'Clean-core enterprise integration connecting SAP S/4HANA, SF Ariba, and Oracle databases.',
+    architecture: {
+      layer1: 'Legacy ECC 6.0, Oracle Databases & Multi-Vendor Procurement',
+      layer2: 'Nybix Automated Migration Engine & BTP Integration Suite',
+      layer3: 'Clean-Core S/4HANA Cloud + Custom Fiori Analytics & EDI',
+    },
+    benefits: [
+      'Turnkey SF Ariba and Oracle supply chain procurement bridges (PARCO)',
+      'Rapid brownfield / greenfield deployment with zero cutover disruption',
       'Seamless BTP side-by-side extensibility without core modification',
       '24/7 continuous observability & Basis performance tuning',
     ],
-    metric: '45% Faster',
-    metricLabel: 'Migration cycle compared to legacy SI approaches',
+    metric: '60% Faster',
+    metricLabel: 'Procurement PO approvals across complex refinery pipelines',
   },
   {
-    id: 'agentic-ai',
-    title: 'Autonomous Enterprise AI Systems',
-    badge: 'Next-Gen Intelligence',
+    id: 'imc-platform',
+    title: 'Enterprise Digital Ecosystems (IMC Platform)',
+    badge: 'Digital Commerce',
     tagline:
-      'Self-orchestrating AI agents operating directly within your ERP, CRM, and supply chain.',
+      'Unified Next.js web portals and React Native mobile commerce apps for nationwide customer scale.',
     architecture: {
-      layer1: 'Enterprise Unstructured Data & ERP Data Lakes',
-      layer2: 'Nybix Agentic LLM Orchestrator & Multi-Step Reasoning Graph',
-      layer3: 'Autonomous Invoice Matching, Customer Service & Forecasting',
+      layer1: 'Centralized Product Catalogs, Inventory Databases & Payment Gateways',
+      layer2: 'Edge-Rendered Next.js 15 & Node.js/PostgreSQL Scalable APIs',
+      layer3: 'Native React Native Android & iOS Apps + Web Consumer Storefront',
     },
     benefits: [
-      'Automated 3-way invoice matching & ERP posting without humans',
-      'Predictive supply chain stockout warning algorithms',
-      'Enterprise-grade private vector databases with zero data leakage',
-      'Domain-tuned copilots for executive decision acceleration',
-    ],
-    metric: '72% Workload',
-    metricLabel: 'Routine administrative tasks fully automated',
-  },
-  {
-    id: 'digital-web',
-    title: 'High-Concurrency Web & Mobile Portals',
-    badge: 'Digital Engineering',
-    tagline:
-      'Sub-second digital platforms built for millions of transactions, vendor portals, and field teams.',
-    architecture: {
-      layer1: 'Microservices & Enterprise REST/GraphQL APIs',
-      layer2: 'Edge-Rendered Next.js 15 & React Native Unified Runtime',
-      layer3: 'Offline-First Field Applications & B2B Customer Portals',
-    },
-    benefits: [
-      'Sub-50ms global latency for heavy enterprise portal queries',
-      'Field technician apps with robust offline SQLite sync',
-      'Enterprise SSO, Role-Based Access Control (RBAC), SOC2 Type II',
-      'Auto-scaling Kubernetes infrastructure with zero-downtime rollouts',
+      'Unified customer shopping experience across web, iOS, and Android (IMC)',
+      'Real-time inventory tracking and automated multi-channel order updates',
+      'Role-based admin dashboards for inventory, pricing, and sales tracking',
+      'Sub-50ms global latency with high-concurrency peak load support',
     ],
     metric: '99.99%',
-    metricLabel: 'Guaranteed platform availability SLA',
+    metricLabel: 'Platform uptime SLA across high-volume customer portals',
   },
   {
-    id: 'commerce',
-    title: 'Enterprise Omnichannel B2B/B2C Commerce',
-    badge: 'Revenue Velocity',
+    id: 'offshore-squads',
+    title: '24/7 Dedicated Offshore Support Squads',
+    badge: 'Global Delivery',
     tagline:
-      'Unified digital commerce engines directly synced with multi-warehouse ERP inventory.',
+      'High-velocity offshore development pods and round-the-clock managed operations.',
     architecture: {
-      layer1: 'SAP Inventory, Tiered Pricing & Warehouse Management',
-      layer2: 'Headless Commerce API & High-Speed Checkout Middleware',
-      layer3: 'Global Multi-Currency, Multi-Brand Digital Storefronts',
+      layer1: 'Global Infrastructure, Cloud Deployments & SAP Basis Environments',
+      layer2: 'Nybix 24/7 L1/L2/L3 Monitoring, Alerting & Incident Response',
+      layer3: 'Dedicated Agile Squads with Time-Zone Aligned Sprint Delivery',
     },
     benefits: [
-      'B2B custom contract pricing, credit limits & approval workflows',
-      'Instant multi-warehouse inventory updates within seconds',
-      'High-converting mobile-first checkout flows',
-      'Over $150M+ annual transaction throughput capacity',
+      'Dedicated full-stack, mobile, and SAP development engineering pods',
+      'Round-the-clock 24/7 managed SLA monitoring and technical support',
+      '60%+ cost optimization with zero quality or communication compromises',
+      'Time-zone aligned collaboration for US, UK, and Middle East/Asia teams',
     ],
-    metric: '3.2x',
-    metricLabel: 'Average increase in B2B digital order volume',
+    metric: '60%+',
+    metricLabel: 'Cost optimization with top-tier engineering delivery',
   },
 ];
 
 /**
- * Template 4 — Initial simulated agent logs
+ * Template 4 — Initial simulated agent logs featuring AP Console and real client pipelines
  */
 export const template4SimulatedLogs = [
   {
     time: '10:42:01',
     level: 'SYS',
-    msg: 'SAP S/4HANA Cloud connection verified. BTP endpoints healthy.',
+    msg: 'SAP S/4HANA & SF Ariba connection verified. BTP endpoints healthy.',
     status: 'success',
   },
   {
     time: '10:42:04',
-    level: 'AI-AGENT',
-    msg: 'Document Intelligence parsing 1,200 supplier invoices... 99.8% match rate.',
+    level: 'AP-CONSOLE',
+    msg: 'PSO fuel manifest parsed: 1,200 invoices matched against SAP PO with 99.8% confidence.',
     status: 'active',
   },
   {
     time: '10:42:09',
-    level: 'SYNC',
-    msg: 'B2B Commerce catalog updated with real-time warehouse inventory across 8 hubs.',
+    level: 'IMC-SYNC',
+    msg: 'IMC mobile & web platform catalog updated with live warehouse inventory.',
+    status: 'success',
+  },
+  {
+    time: '10:42:15',
+    level: 'OFFSHORE',
+    msg: '24/7 Global Managed Support active: 0 unresolved incidents across all clusters.',
     status: 'success',
   },
 ];
