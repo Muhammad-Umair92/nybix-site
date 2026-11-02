@@ -9,9 +9,6 @@ import {
   ChevronRight,
   ExternalLink,
   Award,
-  Phone,
-  Mail,
-  MapPin,
 } from 'lucide-react';
 import { template1Services } from '../data/services';
 import { template1Industries } from '../data/industries';
@@ -20,7 +17,8 @@ import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
 import Card from '../components/ui/Card';
 import SectionHeader from '../components/ui/SectionHeader';
-import TopBar from '../components/layout/TopBar';
+import ClientLogoCloud from '../components/ClientLogoCloud';
+import ProductsSection from '../components/ProductsSection';
 
 export default function Template1Enterprise({ onOpenContact }) {
   const [activeTab, setActiveTab] = useState('sap-ariba');
@@ -29,119 +27,82 @@ export default function Template1Enterprise({ onOpenContact }) {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      {/* Top Header Bar */}
-      <TopBar
-        leftContent={
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-blue-400 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5" /> Certified Enterprise Practice
-            </span>
-            <span className="hidden md:inline text-slate-500">|</span>
-            <span className="hidden md:inline">SAP S/4HANA • SF Ariba • AI • Mobile • Offshore Support</span>
-          </div>
-        }
-        rightContent={
-          <div className="flex items-center gap-5 text-slate-300">
-            <a
-              href={`tel:${companyInfo.phones.pkCall}`}
-              className="hidden lg:flex items-center gap-1.5 hover:text-white transition"
-            >
-              <Phone className="w-3 h-3 text-emerald-400" />
-              <span>PK: +92 300 1692249</span>
-            </a>
-            <a
-              href={`tel:${companyInfo.phones.usCall}`}
-              className="hidden sm:flex items-center gap-1.5 hover:text-white transition"
-            >
-              <Phone className="w-3 h-3 text-blue-400" />
-              <span>USA: {companyInfo.phones.usDisplay}</span>
-            </a>
-            <button
-              onClick={onOpenContact}
-              className="text-blue-400 hover:text-white transition font-medium cursor-pointer"
-            >
-              Request Consultation →
-            </button>
-          </div>
-        }
-      />
-
-      {/* Main Enterprise Navbar */}
-      <header className="sticky top-12 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-10">
+      
+      {/* Sleek Main Enterprise Navbar (Clean single header) */}
+      <header className="sticky top-9 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
+          <div className="flex items-center gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <a href="#" className="flex items-center gap-3">
-                <img
-                  src="/logo/nybix-logo-clean.png"
-                  alt="NYBIX Enterprise Solutions"
-                  className="h-9 sm:h-10 w-auto object-contain"
-                />
-              </a>
-            </div>
+            <a href="#" className="flex items-center gap-3">
+              <img
+                src="/logo/nybix-logo-clean.png"
+                alt="NYBIX Enterprise Solutions"
+                className="h-8 sm:h-9 w-auto object-contain"
+              />
+            </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+            <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-700">
               <a href="#services" className="hover:text-[var(--color-primary,#0070F2)] transition">Services</a>
-              <a href="#sap-practice" className="hover:text-[var(--color-primary,#0070F2)] transition flex items-center gap-1">
-                SAP & SF Ariba <span className="bg-blue-50 text-[var(--color-primary,#0070F2)] text-[10px] px-1.5 py-0.5 rounded font-semibold border border-blue-200">Core</span>
+              <a href="#products" className="hover:text-[var(--color-primary,#0070F2)] transition flex items-center gap-1">
+                Products <span className="bg-blue-50 text-[var(--color-primary,#0070F2)] text-[9px] px-1.5 py-0.2 rounded font-bold border border-blue-200">AP Console</span>
               </a>
-              <a href="#ai-practice" className="hover:text-[var(--color-primary,#0070F2)] transition">AI & AP Console</a>
-              <a href="#digital" className="hover:text-[var(--color-primary,#0070F2)] transition">Web & Mobile</a>
-              <a href="#industries" className="hover:text-[var(--color-primary,#0070F2)] transition">Clients (PARCO • IMC • PSO)</a>
+              <a href="#sap-practice" className="hover:text-[var(--color-primary,#0070F2)] transition">SAP & SF Ariba</a>
+              <a href="#clients" className="hover:text-[var(--color-primary,#0070F2)] transition">Enterprise Clients</a>
+              <a href="#offshore" className="hover:text-[var(--color-primary,#0070F2)] transition">Offshore Support</a>
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <Button
               variant="outline"
-              size="md"
+              size="sm"
               onClick={onOpenContact}
-              className="hidden sm:inline-flex"
+              className="hidden sm:inline-flex text-xs"
             >
               Client Portal
             </Button>
             <Button
               variant="primary-sap"
-              size="md"
+              size="sm"
               onClick={onOpenContact}
-              className="gap-2"
+              className="gap-2 text-xs"
             >
               <span>Schedule Strategic Call</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section - Classic SAP / EY Enterprise Authority */}
-      <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/30 border-b border-slate-200">
+      <section className="relative pt-16 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/20 border-b border-slate-200">
         <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary,#0070F2)_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
+            
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[var(--color-primary,#0070F2)] text-xs font-semibold">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[var(--color-primary,#0070F2)] text-xs font-semibold">
                 <Award className="w-3.5 h-3.5" />
                 <span>Enterprise SAP S/4HANA, SF Ariba & AI Partner</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-dark,#0B192C)] font-display leading-[1.12]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-dark,#0B192C)] font-display leading-[1.1]">
                 Architecting the <span className="text-[var(--color-primary,#0070F2)]">Intelligent Enterprise</span> Across SAP, AI & Cloud.
               </h1>
 
-              <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
                 Nybix delivers high-impact technology modernization for visionary enterprises like <strong>PARCO</strong>, <strong>IMC (Toyota)</strong>, and <strong>PSO</strong>. From certified SAP SF Ariba and Oracle bridges to proprietary AI products (AP Console) and 24/7 offshore support squads.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-1">
                 <Button
                   variant="primary-sap"
                   size="lg"
                   onClick={onOpenContact}
-                  className="gap-2 shadow-lg shadow-blue-500/25"
+                  className="gap-2 shadow-lg shadow-blue-500/25 text-sm"
                 >
                   <span>Request Proposal</span>
                   <ArrowRight className="w-4 h-4" />
@@ -151,68 +112,69 @@ export default function Template1Enterprise({ onOpenContact }) {
                   href="#services"
                   variant="secondary"
                   size="lg"
+                  className="text-sm"
                 >
                   Explore Core Services
                 </Button>
               </div>
 
-              {/* Trust Badges */}
-              <div className="pt-8 border-t border-slate-200 grid grid-cols-3 gap-6">
+              {/* Trust Badges - Clean Numbers Only */}
+              <div className="pt-6 border-t border-slate-200 grid grid-cols-3 gap-6">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-dark,#0B192C)]">PARCO • IMC • PSO</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Verified Enterprise Engagements</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-dark,#0B192C)] font-display">150+</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Enterprise Deployments</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary,#0070F2)]">99.8%</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">AP Console OCR & Match SLA</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary,#0070F2)] font-display">99.8%</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">AP Console OCR Match SLA</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-dark,#0B192C)]">24/7</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Global Offshore Support</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[var(--color-dark,#0B192C)] font-display">24/7</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Dedicated Offshore Ops</div>
                 </div>
               </div>
             </div>
 
             {/* Right Card / Visual Architecture Matrix */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-xl border border-slate-200 shadow-xl overflow-hidden">
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
                 <div className="bg-[var(--color-accent,#003882)] text-white p-6">
                   <div className="flex items-center justify-between">
                     <span className="text-xs uppercase tracking-wider font-semibold text-blue-200">Enterprise Framework</span>
                     <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   </div>
-                  <h3 className="text-xl font-bold mt-2">The Nybix Delivery Engine</h3>
+                  <h3 className="text-lg font-bold mt-2">The Nybix Delivery Engine</h3>
                   <p className="text-xs text-blue-100 mt-1">Unified governance across SAP S/4HANA, SF Ariba, Oracle, and AI Products.</p>
                 </div>
 
-                <div className="p-6 space-y-4">
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-blue-50/60 border border-blue-100">
-                    <div className="w-8 h-8 rounded bg-[var(--color-primary,#0070F2)] text-white flex items-center justify-center shrink-0">
+                <div className="p-6 space-y-3.5 text-xs">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                    <div className="w-8 h-8 rounded-lg bg-[var(--color-primary,#0070F2)] text-white flex items-center justify-center shrink-0">
                       <Building2 className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">SAP S/4HANA & SF Ariba Bridges</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">Seamless SF Ariba procurement with Oracle & SAP S/4HANA clean core.</p>
+                      <h4 className="font-bold text-slate-900">SAP S/4HANA & SF Ariba Bridges</h4>
+                      <p className="text-slate-600 mt-0.5">Seamless SF Ariba procurement with Oracle & SAP S/4HANA clean core.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <div className="w-8 h-8 rounded bg-[var(--color-dark,#0B192C)] text-white flex items-center justify-center shrink-0">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <div className="w-8 h-8 rounded-lg bg-[var(--color-dark,#0B192C)] text-white flex items-center justify-center shrink-0">
                       <Cpu className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">AP Console (Proprietary AI)</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">Automated 3-way invoice matching & ERP line item posting with zero data entry.</p>
+                      <h4 className="font-bold text-slate-900">AP Console (Proprietary AI)</h4>
+                      <p className="text-slate-600 mt-0.5">Automated 3-way invoice matching & ERP line item posting with zero data entry.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <div className="w-8 h-8 rounded bg-sky-600 text-white flex items-center justify-center shrink-0">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <div className="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center shrink-0">
                       <Globe className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">Full-Stack Web & Mobile Apps</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">High-volume Next.js portals, React Native mobile apps & offshore support squads.</p>
+                      <h4 className="font-bold text-slate-900">Full-Stack Web & Mobile Apps</h4>
+                      <p className="text-slate-600 mt-0.5">High-volume Next.js portals, React Native mobile apps & offshore support squads.</p>
                     </div>
                   </div>
 
@@ -220,7 +182,7 @@ export default function Template1Enterprise({ onOpenContact }) {
                     variant="primary-sap"
                     size="md"
                     onClick={onOpenContact}
-                    className="w-full mt-2 gap-2"
+                    className="w-full mt-2 gap-2 text-xs"
                   >
                     <span>Download Enterprise Architecture Whitepaper</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -228,12 +190,21 @@ export default function Template1Enterprise({ onOpenContact }) {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
+      {/* World-Class Client Trust Cloud */}
+      <div id="clients">
+        <ClientLogoCloud />
+      </div>
+
+      {/* Proprietary In-House Products Section (AP Console & Trip Planner) */}
+      <ProductsSection onOpenContact={onOpenContact} />
+
       {/* Core Services Section with Enterprise Interactive Tabs */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-slate-50/50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <SectionHeader
             badge="Capabilities & Offerings"
@@ -254,7 +225,7 @@ export default function Template1Enterprise({ onOpenContact }) {
                 <button
                   key={service.id}
                   onClick={() => setActiveTab(service.id)}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-lg text-sm font-semibold transition cursor-pointer ${
+                  className={`flex items-center gap-2.5 px-5 py-3 rounded-xl text-xs font-semibold transition cursor-pointer ${
                     isActive
                       ? 'bg-[var(--color-primary,#0070F2)] text-white shadow-md shadow-blue-500/20'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -268,7 +239,7 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
 
           {/* Active Tab Card Content */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 lg:p-12 shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 lg:p-12 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 space-y-6">
                 <div
@@ -283,15 +254,15 @@ export default function Template1Enterprise({ onOpenContact }) {
                 <h3 className="text-2xl sm:text-3xl font-bold text-[var(--color-dark,#0B192C)] font-display">
                   {activeService.headline}
                 </h3>
-                <p className="text-slate-600 text-base leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {activeService.desc}
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Key Deliverables & Strengths</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Key Deliverables & Strengths</h4>
                   <ul className="grid sm:grid-cols-1 gap-2.5">
                     {activeService.capabilities.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
                         <CheckCircle2 className="w-4 h-4 text-[var(--color-primary,#0070F2)] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
@@ -304,7 +275,7 @@ export default function Template1Enterprise({ onOpenContact }) {
                     variant="primary-sap"
                     size="md"
                     onClick={onOpenContact}
-                    className="gap-2 shadow-sm"
+                    className="gap-2 shadow-sm text-xs"
                   >
                     <span>Consult with a Principal Architect</span>
                     <ArrowRight className="w-4 h-4" />
@@ -313,16 +284,16 @@ export default function Template1Enterprise({ onOpenContact }) {
               </div>
 
               <div className="lg:col-span-5">
-                <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-md">
+                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8 shadow-sm">
                   <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Business Impact Metric</div>
                   <div className="text-5xl font-black text-[var(--color-primary,#0070F2)] my-3 font-display">
                     {activeService.stat}
                   </div>
-                  <p className="text-sm font-medium text-slate-700 leading-snug">
+                  <p className="text-xs font-medium text-slate-700 leading-snug">
                     {activeService.statLabel}
                   </p>
 
-                  <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+                  <div className="mt-8 pt-6 border-t border-slate-200 space-y-4">
                     <div className="flex items-center justify-between text-xs text-slate-600">
                       <span>Deployment Methodology</span>
                       <span className="font-semibold text-slate-900">Agile SAP Activate & CI/CD</span>
@@ -344,7 +315,7 @@ export default function Template1Enterprise({ onOpenContact }) {
       </section>
 
       {/* Industries & Verified Client Solutions Section */}
-      <section id="industries" className="py-20 bg-slate-50 border-t border-b border-slate-200">
+      <section id="industries" className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <SectionHeader
             badge="Verified Enterprise Track Record"
@@ -357,9 +328,9 @@ export default function Template1Enterprise({ onOpenContact }) {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {template1Industries.map((ind, idx) => (
-              <Card key={idx} className="p-6">
+              <Card key={idx} className="p-6 rounded-2xl">
                 <div className="text-xs font-bold text-[var(--color-primary,#0070F2)] uppercase tracking-wider">{ind.metric}</div>
-                <h3 className="text-lg font-bold text-slate-900 mt-2 mb-1 font-display">{ind.title}</h3>
+                <h3 className="text-base font-bold text-slate-900 mt-2 mb-1 font-display">{ind.title}</h3>
                 <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700 inline-block mb-2">
                   {ind.tag}
                 </span>
@@ -384,8 +355,8 @@ export default function Template1Enterprise({ onOpenContact }) {
           <h2 className="text-3xl sm:text-5xl font-bold font-display mt-3 mb-6">
             Ready to Modernize Your Enterprise Tech Stack?
           </h2>
-          <p className="text-slate-300 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Connect directly with Nyabix principal architects to evaluate your SAP, SF Ariba, Oracle, AP Console, or dedicated offshore development roadmap.
+          <p className="text-slate-300 text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
+            Connect directly with Nybix principal architects to evaluate your SAP, SF Ariba, Oracle, AP Console, or dedicated offshore development roadmap.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
@@ -393,7 +364,7 @@ export default function Template1Enterprise({ onOpenContact }) {
               variant="cta-white"
               size="lg"
               onClick={onOpenContact}
-              className="gap-2"
+              className="gap-2 text-sm"
             >
               <span>Schedule Strategic Consultation</span>
               <ArrowRight className="w-4 h-4 text-[var(--color-primary,#0070F2)]" />
@@ -402,6 +373,7 @@ export default function Template1Enterprise({ onOpenContact }) {
               variant="primary-sap"
               size="lg"
               onClick={onOpenContact}
+              className="text-sm"
             >
               Request Custom Quote
             </Button>
@@ -412,24 +384,24 @@ export default function Template1Enterprise({ onOpenContact }) {
       {/* Enterprise Footer with Official Contacts */}
       <footer className="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
+          <div className="col-span-2 space-y-3">
+            <div className="flex items-center gap-2">
               <img
                 src="/logo/nybix-logo-white.png"
                 alt="NYBIX Technologies"
-                className="h-8 w-auto object-contain brightness-110"
+                className="h-7 w-auto object-contain brightness-110"
               />
             </div>
-            <p className="text-slate-400 max-w-sm leading-relaxed mb-4">
+            <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
               Enterprise technology engineering firm delivering SAP SF Ariba integrations, autonomous AI products (AP Console), high-volume web/mobile platforms, and 24/7 offshore support.
             </p>
-            <div className="space-y-1.5 text-slate-300 text-[11px] mb-4">
+            <div className="space-y-1 text-slate-300 text-[11px] pt-1">
               <div><strong>Email:</strong> <a href={`mailto:${companyInfo.email}`} className="text-blue-400 hover:underline">{companyInfo.email}</a></div>
               <div><strong>Phone (PK):</strong> <a href={`tel:${companyInfo.phones.pkCall}`} className="hover:text-white transition">{companyInfo.phones.pkDisplay}</a></div>
               <div><strong>Phone (USA):</strong> <a href={`tel:${companyInfo.phones.usCall}`} className="hover:text-white transition">{companyInfo.phones.usDisplay}</a></div>
               <div><strong>Hubs:</strong> {companyInfo.locations}</div>
             </div>
-            <div className="text-slate-500">© 2026 Nyabix Technologies. All rights reserved. Confidential.</div>
+            <div className="text-slate-500 pt-2">© 2026 Nyabix Technologies. All rights reserved. Confidential.</div>
           </div>
 
           <div>
@@ -444,10 +416,10 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider mb-3">AI & Digital</h4>
+            <h4 className="text-white font-bold uppercase tracking-wider mb-3">AI & Products</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-white transition">AP Console (AI Invoice)</a></li>
-              <li><a href="#services" className="hover:text-white transition">Trip Planner Engine</a></li>
+              <li><a href="#products" className="hover:text-white transition">AP Console (AI Invoicing)</a></li>
+              <li><a href="#products" className="hover:text-white transition">Trip Planner Engine</a></li>
               <li><a href="#services" className="hover:text-white transition">Next.js Web Portals</a></li>
               <li><a href="#services" className="hover:text-white transition">React Native & Flutter</a></li>
               <li><a href="#services" className="hover:text-white transition">Shopify Mobile Apps</a></li>
@@ -455,17 +427,17 @@ export default function Template1Enterprise({ onOpenContact }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider mb-3">Global Delivery</h4>
+            <h4 className="text-white font-bold uppercase tracking-wider mb-3">Enterprise Clients</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-white transition">Offshore Engineering Squads</a></li>
-              <li><a href="#services" className="hover:text-white transition">24/7 L1/L2/L3 SLAs</a></li>
-              <li><a href="#industries" className="hover:text-white transition">Client: IMC (Toyota)</a></li>
-              <li><a href="#industries" className="hover:text-white transition">Client: PARCO Refinery</a></li>
-              <li><a href="#industries" className="hover:text-white transition">Client: PSO Supply Chain</a></li>
+              <li><a href="#clients" className="hover:text-white transition">IMC (Toyota Pakistan)</a></li>
+              <li><a href="#clients" className="hover:text-white transition">PARCO Refinery</a></li>
+              <li><a href="#clients" className="hover:text-white transition">PSO Supply Chain</a></li>
+              <li><a href="#services" className="hover:text-white transition">24/7 Offshore Pods</a></li>
             </ul>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }

@@ -3,6 +3,12 @@ import {
   ArrowUpRight,
   Zap,
   Calculator,
+  ShieldCheck,
+  Building2,
+  Cpu,
+  Smartphone,
+  Globe2,
+  Headphones,
 } from 'lucide-react';
 import {
   template2Services,
@@ -10,8 +16,11 @@ import {
   template2WorkflowSteps,
   template2HeroMetrics,
 } from '../data/services';
+import { companyInfo } from '../data/company';
 import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
+import ClientLogoCloud from '../components/ClientLogoCloud';
+import ProductsSection from '../components/ProductsSection';
 
 export default function Template2ModernAI({ onOpenContact }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -35,59 +44,33 @@ export default function Template2ModernAI({ onOpenContact }) {
   return (
     <div className="min-h-screen bg-[#FAFAFC] text-slate-900 font-sans">
       {/* Modern Minimal Navigation */}
-      <header className="sticky top-12 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      <header className="sticky top-9 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2.5">
-              <a href="#" className="flex items-center">
-                <img
-                  src="/logo/nybix-logo-clean.png"
-                  alt="NYBIX Tech"
-                  className="h-8 sm:h-9 w-auto object-contain"
-                />
-              </a>
-            </div>
+            <a href="#" className="flex items-center gap-2.5">
+              <img
+                src="/logo/nybix-logo-clean.png"
+                alt="NYBIX Tech"
+                className="h-8 sm:h-9 w-auto object-contain"
+              />
+            </a>
 
-            <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-              <button
-                onClick={() => setSelectedFilter('sap')}
-                className={`transition cursor-pointer ${
-                  selectedFilter === 'sap' ? 'font-semibold' : 'hover:opacity-80'
-                }`}
-                style={selectedFilter === 'sap' ? { color: 'var(--color-primary, #2563EB)' } : {}}
-              >
-                SAP Systems
-              </button>
-              <button
-                onClick={() => setSelectedFilter('ai')}
-                className={`transition cursor-pointer ${
-                  selectedFilter === 'ai' ? 'font-semibold' : 'hover:opacity-80'
-                }`}
-                style={selectedFilter === 'ai' ? { color: 'var(--color-primary, #2563EB)' } : {}}
-              >
-                AI & Agents
-              </button>
-              <button
-                onClick={() => setSelectedFilter('web')}
-                className={`transition cursor-pointer ${
-                  selectedFilter === 'web' ? 'font-semibold' : 'hover:opacity-80'
-                }`}
-                style={selectedFilter === 'web' ? { color: 'var(--color-primary, #2563EB)' } : {}}
-              >
-                Web & Mobile
-              </button>
-              <button
-                onClick={() => setSelectedFilter('ecom')}
-                className={`transition cursor-pointer ${
-                  selectedFilter === 'ecom' ? 'font-semibold' : 'hover:opacity-80'
-                }`}
-                style={selectedFilter === 'ecom' ? { color: 'var(--color-primary, #2563EB)' } : {}}
-              >
-                E-Commerce
-              </button>
+            <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
+              <a href="#services" className="hover:text-[var(--color-primary,#2563EB)] transition">
+                Services
+              </a>
+              <a href="#products" className="hover:text-[var(--color-primary,#2563EB)] transition flex items-center gap-1">
+                Products <span className="bg-blue-50 text-[var(--color-primary,#2563EB)] text-[9px] px-1.5 py-0.2 rounded font-bold border border-blue-200">AP Console</span>
+              </a>
+              <a href="#clients" className="hover:text-[var(--color-primary,#2563EB)] transition">
+                Enterprise Clients
+              </a>
+              <a href="#workflow" className="hover:text-[var(--color-primary,#2563EB)] transition">
+                4-Day Model
+              </a>
               <a
                 href="#calculator"
-                className="hover:opacity-80 transition flex items-center gap-1 text-slate-500"
+                className="hover:text-[var(--color-primary,#2563EB)] transition flex items-center gap-1 text-slate-500"
               >
                 <Calculator className="w-3.5 h-3.5" /> ROI Calculator
               </a>
@@ -97,20 +80,20 @@ export default function Template2ModernAI({ onOpenContact }) {
           <div className="flex items-center gap-3">
             <Button
               variant="primary"
-              size="md"
+              size="sm"
               shape="rounded"
               onClick={onOpenContact}
-              className="gap-2"
+              className="gap-2 text-xs"
             >
               <span>Build With Nybix</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section - Futuristic, Clean, High Contrast White & Electric Blue */}
-      <section className="relative pt-20 pb-24 overflow-hidden">
+      <section className="relative pt-16 pb-20 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] blur-3xl -z-10 pointer-events-none opacity-50"
           style={{
@@ -129,7 +112,7 @@ export default function Template2ModernAI({ onOpenContact }) {
             }}
           >
             <Zap className="w-3.5 h-3.5" />
-            <span>Fast-Track Deployment Sprint: 4-5 Day Functional Prototypes</span>
+            <span>Trusted by PARCO, IMC (Toyota) & PSO • 4-5 Day Working Prototypes</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 font-display max-w-4xl mx-auto leading-[1.08]">
@@ -141,22 +124,22 @@ export default function Template2ModernAI({ onOpenContact }) {
                 textDecorationColor: 'var(--color-primary-glow, rgba(37,99,235,0.4))',
               }}
             >
-              SAP & Intelligent AI
+              SAP, Modern Tech & AI
             </span>
             .
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            We bridge deep SAP ERP stability with bleeding-edge AI automation, bespoke web portals, and omnichannel digital commerce architectures.
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal">
+            Nyabix delivers enterprise-grade SAP SF Ariba integrations, autonomous AI tools (AP Console), mission-critical mobile & web applications, and 24/7 dedicated offshore engineering pods.
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
+          <div className="flex flex-wrap justify-center items-center gap-4 pt-2">
             <Button
               variant="primary"
               size="lg"
               shape="rounded"
               onClick={onOpenContact}
-              className="gap-2 shadow-lg shadow-blue-600/25"
+              className="gap-2 shadow-lg shadow-blue-600/25 text-sm"
             >
               <span>Start Your Implementation</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -167,13 +150,14 @@ export default function Template2ModernAI({ onOpenContact }) {
               variant="secondary"
               size="lg"
               shape="rounded"
+              className="text-sm"
             >
               Calculate Estimated ROI
             </Button>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {template2HeroMetrics.map((stat, i) => (
               <div key={i} className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs">
                 <div
@@ -189,8 +173,16 @@ export default function Template2ModernAI({ onOpenContact }) {
         </div>
       </section>
 
+      {/* World-Class Client Trust Cloud */}
+      <div id="clients">
+        <ClientLogoCloud />
+      </div>
+
+      {/* Proprietary In-House Products Section (AP Console & Trip Planner) */}
+      <ProductsSection onOpenContact={onOpenContact} />
+
       {/* Interactive Service Filter Grid */}
-      <section className="py-20 bg-white border-t border-slate-200/80">
+      <section id="services" className="py-20 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
@@ -293,7 +285,7 @@ export default function Template2ModernAI({ onOpenContact }) {
       </section>
 
       {/* Interactive Workflow Section */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section id="workflow" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <SectionHeader
             badge="The 4-Step Velocity Model"

@@ -10,8 +10,11 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { template4Solutions, template4SimulatedLogs } from '../data/solutions';
+import { companyInfo } from '../data/company';
 import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
+import ClientLogoCloud from '../components/ClientLogoCloud';
+import ProductsSection from '../components/ProductsSection';
 
 export default function Template4Futuristic({ onOpenContact }) {
   const [activeSolution, setActiveSolution] = useState(0);
@@ -23,8 +26,8 @@ export default function Template4Futuristic({ onOpenContact }) {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       {/* Sleek Floating Enterprise Navbar */}
-      <nav className="sticky top-12 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-100 transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      <nav className="sticky top-9 z-30 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-xs transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3">
               <img
@@ -36,8 +39,11 @@ export default function Template4Futuristic({ onOpenContact }) {
 
             <div className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-600">
               <a href="#solutions" className="hover:text-[var(--color-primary,#0070F2)] transition">Solutions</a>
+              <a href="#products" className="hover:text-[var(--color-primary,#0070F2)] transition flex items-center gap-1">
+                Products <span className="bg-blue-50 text-[var(--color-primary,#0070F2)] text-[9px] px-1.5 py-0.2 rounded font-bold border border-blue-200">AP Console</span>
+              </a>
+              <a href="#clients" className="hover:text-[var(--color-primary,#0070F2)] transition">Enterprise Clients</a>
               <a href="#architecture" className="hover:text-[var(--color-primary,#0070F2)] transition">Architecture Engine</a>
-              <a href="#advantage" className="hover:text-[var(--color-primary,#0070F2)] transition">The Nybix Edge</a>
               <a href="#terminal" className="hover:text-[var(--color-primary,#0070F2)] transition flex items-center gap-1 text-[var(--color-primary,#0070F2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping inline-block" />
                 Live Agent Telemetry
@@ -51,7 +57,7 @@ export default function Template4Futuristic({ onOpenContact }) {
               size="sm"
               shape="pill"
               onClick={onOpenContact}
-              className="gap-2"
+              className="gap-2 text-xs"
             >
               <span>Initiate 4-5 Day Sprint</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -61,7 +67,7 @@ export default function Template4Futuristic({ onOpenContact }) {
       </nav>
 
       {/* Hero Section - World-Class Sleek Minimalist Tech */}
-      <section className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white">
+      <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white">
         {/* Subtle geometric grid background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
 
@@ -71,7 +77,7 @@ export default function Template4Futuristic({ onOpenContact }) {
               className="w-2 h-2 rounded-full animate-pulse"
               style={{ backgroundColor: 'var(--color-primary, #0070F2)' }}
             />
-            <span>Next-Generation Enterprise Systems Architecture</span>
+            <span>Next-Generation Systems Architecture • Proven at PARCO, IMC & PSO</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 font-display leading-[1.05] max-w-4xl mx-auto">
@@ -82,17 +88,17 @@ export default function Template4Futuristic({ onOpenContact }) {
             .
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Nybix bridges the gap between deep SAP ERP governance and cutting-edge autonomous AI, high-concurrency web engineering, and omnichannel commerce.
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Deploying battle-tested digital infrastructure for <strong>PARCO</strong>, <strong>IMC (Toyota)</strong>, and <strong>PSO</strong> — from autonomous AP Console OCR pipelines to high-concurrency mobile commerce and 24/7 global squads.
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
+          <div className="flex flex-wrap justify-center items-center gap-4 pt-2">
             <Button
               variant="primary-dark"
               size="lg"
               shape="pill"
               onClick={onOpenContact}
-              className="gap-2.5 group"
+              className="gap-2.5 group text-sm"
             >
               <span>Schedule Architecture Review</span>
               <ArrowRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
@@ -103,38 +109,47 @@ export default function Template4Futuristic({ onOpenContact }) {
               variant="secondary"
               size="lg"
               shape="pill"
+              className="text-sm"
             >
               Explore Solutions Matrix
             </Button>
           </div>
 
           {/* Real-time Enterprise Trust Proof Bar */}
-          <div className="pt-16 max-w-5xl mx-auto">
+          <div className="pt-12 max-w-5xl mx-auto">
             <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-slate-200/80 p-6 shadow-xl shadow-slate-200/40 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
               <div className="space-y-1 border-r border-slate-100 last:border-none pr-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Core Expertise</div>
-                <div className="text-lg font-bold text-slate-900 font-display">SAP S/4HANA & BTP</div>
-                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>Clean Core Certified</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Enterprise Energy</div>
+                <div className="text-lg font-bold text-slate-900 font-display">PARCO & PSO</div>
+                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>SAP SF Ariba & AP Console</div>
               </div>
               <div className="space-y-1 border-r border-slate-100 last:border-none pr-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Sprint Cadence</div>
-                <div className="text-lg font-bold text-slate-900 font-display">4-5 Day Validation</div>
-                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>Working Prototypes</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Automotive Scale</div>
+                <div className="text-lg font-bold text-slate-900 font-display">IMC (Toyota)</div>
+                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>Web & Mobile Platform</div>
               </div>
               <div className="space-y-1 border-r border-slate-100 last:border-none pr-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">AI Automation</div>
-                <div className="text-lg font-bold text-slate-900 font-display">Autonomous Agents</div>
-                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>ERP & CRM In-Loop</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Rapid Proof-of-Concept</div>
+                <div className="text-lg font-bold text-slate-900 font-display">4-5 Day Sprint</div>
+                <div className="text-[11px] font-medium" style={{ color: 'var(--color-primary, #0070F2)' }}>Functional Prototypes</div>
               </div>
               <div className="space-y-1 pr-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Reliability SLA</div>
-                <div className="text-lg font-bold text-slate-900 font-display">99.99% Uptime</div>
-                <div className="text-[11px] text-emerald-600 font-medium">24/7 Managed Ops</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Global Operations</div>
+                <div className="text-lg font-bold text-slate-900 font-display">24/7 Squads</div>
+                <div className="text-[11px] text-emerald-600 font-medium">Dallas • Karachi Pods</div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* World-Class Client Trust Cloud */}
+      <div id="clients">
+        <ClientLogoCloud />
+      </div>
+
+      {/* Proprietary In-House Products Section (AP Console & Trip Planner) */}
+      <ProductsSection onOpenContact={onOpenContact} />
 
       {/* Interactive Solution Configurator */}
       <section id="solutions" className="py-24 bg-white border-t border-slate-100">
@@ -481,11 +496,12 @@ export default function Template4Futuristic({ onOpenContact }) {
               Enterprise technology firm delivering SAP SF Ariba integrations, proprietary AI products (AP Console & Trip Planner), and 24/7 dedicated offshore engineering squads.
             </p>
             <div className="space-y-1 text-slate-300 text-[11px] pt-1">
-              <div>Email: <a href="mailto:nyabix.tech@gmail.com" className="text-blue-400 hover:underline">nyabix.tech@gmail.com</a></div>
-              <div>PK: <a href="tel:+923001692249" className="hover:text-white transition">+92 300 1NYABIX / +92 300 1692249</a></div>
-              <div>USA: <a href="tel:+14698052733" className="hover:text-white transition">+1 (469) 805-2733</a></div>
+              <div>Email: <a href={`mailto:${companyInfo.email}`} className="text-blue-400 hover:underline">{companyInfo.email}</a></div>
+              <div>PK: <a href={`tel:${companyInfo.phones.pkCall}`} className="hover:text-white transition">{companyInfo.phones.pkDisplay}</a></div>
+              <div>USA: <a href={`tel:${companyInfo.phones.usCall}`} className="hover:text-white transition">{companyInfo.phones.usDisplay}</a></div>
+              <div>Hubs: {companyInfo.locations}</div>
             </div>
-            <div className="text-slate-500 text-[11px] pt-2">© 2026 Nyabix Technologies. Dallas (USA) • Karachi (PK).</div>
+            <div className="text-slate-500 text-[11px] pt-2">© 2026 Nyabix Technologies. All rights reserved.</div>
           </div>
 
           <div>
