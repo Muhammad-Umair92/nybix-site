@@ -527,3 +527,4 @@ export default function Template4Futuristic({ onOpenContact }) {
     </div>
   );
 }
+
