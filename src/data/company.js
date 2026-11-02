@@ -78,5 +78,26 @@ export const companyInfo = {
       impact: '35% reduction in corporate travel planning hours',
     },
   ],
+  // Official About Us, Mission & Vision from Client Brief
+  about: {
+    title: 'About Nyabix',
+    headline: 'Turning Ideas into Innovative Digital Solutions',
+    lead: 'At Nyabix, we are a technology-driven company committed to turning ideas into innovative digital solutions.',
+    body: [
+      'We specialize in AI development, mobile application development, web development, e-commerce solutions, and enterprise software development.',
+      'From creating powerful mobile applications for Android and cross-platform devices to building intelligent AI systems and scalable web applications, we help businesses embrace technology and achieve their goals.',
+      'Our focus is on delivering high-quality, reliable, and customized solutions that improve efficiency, enhance user experiences, and support business growth.',
+    ],
+    mission: 'To empower businesses through innovative technology and exceptional digital solutions.',
+    vision: 'To become a trusted technology partner for businesses worldwide.',
+    specialties: [
+      'AI Development',
+      'Android & Cross-Platform Mobile Apps',
+      'Scalable Web Portals',
+      'E-Commerce Solutions',
+      'Enterprise Software & ERP Integrations',
+      'Dedicated 24/7 Offshore Support',
+    ],
+  },
 };
 

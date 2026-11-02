@@ -20,6 +20,7 @@ import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import ClientLogoCloud from '../components/ClientLogoCloud';
 import ProductsSection from '../components/ProductsSection';
+import AboutSection from '../components/AboutSection';
 
 export default function Template3Consultancy({ onOpenContact }) {
   const [selectedCase, setSelectedCase] = useState(0);
@@ -40,6 +41,9 @@ export default function Template3Consultancy({ onOpenContact }) {
             </a>
 
             <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-700">
+              <a href="#about" className="hover:text-[var(--color-primary,#0070F2)] transition">
+                About Us
+              </a>
               <a href="#strategic-pillars" className="hover:text-[var(--color-primary,#0070F2)] transition">
                 Advisory Pillars
               </a>
@@ -278,6 +282,9 @@ export default function Template3Consultancy({ onOpenContact }) {
           </div>
         </div>
       </section>
+
+      {/* Official About Us Section (Mission, Vision & Digital Solutions) */}
+      <AboutSection onOpenContact={onOpenContact} />
 
       {/* Offshore Delivery Practice Section */}
       <section id="offshore" className="py-20 bg-slate-100/70 border-b border-slate-200">

@@ -15,6 +15,7 @@ import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import ClientLogoCloud from '../components/ClientLogoCloud';
 import ProductsSection from '../components/ProductsSection';
+import AboutSection from '../components/AboutSection';
 
 export default function Template4Futuristic({ onOpenContact }) {
   const [activeSolution, setActiveSolution] = useState(0);
@@ -38,6 +39,7 @@ export default function Template4Futuristic({ onOpenContact }) {
             </a>
 
             <div className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-600">
+              <a href="#about" className="hover:text-[var(--color-primary,#0070F2)] transition">About Us</a>
               <a href="#solutions" className="hover:text-[var(--color-primary,#0070F2)] transition">Solutions</a>
               <a href="#products" className="hover:text-[var(--color-primary,#0070F2)] transition flex items-center gap-1">
                 Products <span className="bg-blue-50 text-[var(--color-primary,#0070F2)] text-[9px] px-1.5 py-0.2 rounded font-bold border border-blue-200">AP Console</span>
@@ -479,6 +481,9 @@ export default function Template4Futuristic({ onOpenContact }) {
           </div>
         </div>
       </section>
+
+      {/* Official About Us Section (Mission, Vision & Digital Solutions) */}
+      <AboutSection onOpenContact={onOpenContact} />
 
       {/* World-Class Modern Footer */}
       <footer

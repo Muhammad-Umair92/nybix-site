@@ -21,6 +21,7 @@ import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import ClientLogoCloud from '../components/ClientLogoCloud';
 import ProductsSection from '../components/ProductsSection';
+import AboutSection from '../components/AboutSection';
 
 export default function Template2ModernAI({ onOpenContact }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -56,6 +57,9 @@ export default function Template2ModernAI({ onOpenContact }) {
             </a>
 
             <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
+              <a href="#about" className="hover:text-[var(--color-primary,#2563EB)] transition">
+                About
+              </a>
               <a href="#services" className="hover:text-[var(--color-primary,#2563EB)] transition">
                 Services
               </a>
@@ -323,6 +327,9 @@ export default function Template2ModernAI({ onOpenContact }) {
           </div>
         </div>
       </section>
+
+      {/* Official About Us Section (Mission, Vision & Digital Solutions) */}
+      <AboutSection onOpenContact={onOpenContact} />
 
       {/* Interactive ROI Calculator Widget */}
       <section id="calculator" className="py-20 bg-white border-t border-slate-200">
