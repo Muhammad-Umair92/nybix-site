@@ -48,7 +48,7 @@ export default function Template3Consultancy({ onOpenContact }) {
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
 
       {/* Top Advisory Bar */}
-      <div className="bg-[#0B192C] text-slate-300 text-xs py-2.5 px-4 sm:px-8 border-b border-slate-800">
+      <div className="bg-[var(--color-dark,#0B192C)] text-slate-300 text-xs py-2.5 px-4 sm:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-3">
             <span className="font-semibold text-white tracking-wider uppercase text-[11px]">Nybix Strategic Advisory</span>
@@ -89,7 +89,7 @@ export default function Template3Consultancy({ onOpenContact }) {
           <div className="flex items-center gap-4">
             <button
               onClick={onOpenContact}
-              className="px-6 py-3 rounded text-sm font-semibold text-white bg-[#003882] hover:bg-[#0B192C] transition shadow-md flex items-center gap-2"
+              className="px-6 py-3 rounded text-sm font-semibold text-white bg-[var(--color-accent,#003882)] hover:bg-[var(--color-dark,#0B192C)] transition shadow-md flex items-center gap-2"
             >
               <span>Engage Our Partners</span>
               <ArrowRight className="w-4 h-4" />
@@ -106,7 +106,7 @@ export default function Template3Consultancy({ onOpenContact }) {
               Strategic Executive Briefing
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-serif font-black text-[#0B192C] leading-tight">
+            <h1 className="text-4xl sm:text-6xl font-serif font-black text-[var(--color-dark,#0B192C)] leading-tight">
               Where Rigorous Enterprise SAP Meets Autonomous Intelligence.
             </h1>
 
@@ -117,7 +117,7 @@ export default function Template3Consultancy({ onOpenContact }) {
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 onClick={onOpenContact}
-                className="px-7 py-3.5 rounded text-sm font-semibold text-white bg-[#003882] hover:bg-[#0B192C] transition shadow-md flex items-center gap-2"
+                className="px-7 py-3.5 rounded text-sm font-semibold text-white bg-[var(--color-accent,#003882)] hover:bg-[var(--color-dark,#0B192C)] transition shadow-md flex items-center gap-2"
               >
                 <span>Request Executive Briefing</span>
                 <ArrowRight className="w-4 h-4" />
@@ -139,7 +139,7 @@ export default function Template3Consultancy({ onOpenContact }) {
 
           <div className="max-w-2xl mb-14">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-700 font-sans">Four Core Pillars</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#0B192C] mt-2">
+            <h2 className="text-3xl sm:text-4xl font-serif font-black text-[var(--color-dark,#0B192C)] mt-2">
               Transformational Capabilities
             </h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -182,7 +182,7 @@ export default function Template3Consultancy({ onOpenContact }) {
                     <h3 className="text-lg font-serif font-bold text-slate-900 mt-2 mb-3">{p.title}</h3>
                     <p className="text-xs text-slate-600 leading-relaxed">{p.desc}</p>
                   </div>
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#003882]">
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[var(--color-accent,#003882)]">
                     <span>Consult Practice Leader</span>
                     <ChevronRight className="w-3.5 h-3.5 ml-1" />
                   </div>
@@ -200,7 +200,7 @@ export default function Template3Consultancy({ onOpenContact }) {
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-700">Proven Performance</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#0B192C] mt-2">
+            <h2 className="text-3xl sm:text-4xl font-serif font-black text-[var(--color-dark,#0B192C)] mt-2">
               Executive Case Studies
             </h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -215,7 +215,7 @@ export default function Template3Consultancy({ onOpenContact }) {
                 key={idx}
                 onClick={() => setSelectedCase(idx)}
                 className={`px-5 py-2.5 rounded text-xs font-semibold transition ${selectedCase === idx
-                    ? 'bg-[#003882] text-white shadow-sm'
+                    ? 'bg-[var(--color-accent,#003882)] text-white shadow-sm'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
               >
@@ -253,7 +253,7 @@ export default function Template3Consultancy({ onOpenContact }) {
             <div className="mt-8 pt-6 border-t border-slate-200 flex justify-end">
               <button
                 onClick={onOpenContact}
-                className="px-6 py-2.5 rounded text-xs font-semibold text-white bg-[#003882] hover:bg-[#0B192C] transition flex items-center gap-1.5"
+                className="px-6 py-2.5 rounded text-xs font-semibold text-white bg-[var(--color-accent,#003882)] hover:bg-[var(--color-dark,#0B192C)] transition flex items-center gap-1.5"
               >
                 <span>Request Detailed Audit Report</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -265,7 +265,7 @@ export default function Template3Consultancy({ onOpenContact }) {
       </section>
 
       {/* Advisory Footer */}
-      <footer className="bg-[#0B192C] text-slate-400 py-12 text-xs border-t border-slate-800">
+      <footer className="bg-[var(--color-dark,#0B192C)] text-slate-400 py-12 text-xs border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <div className="mb-2">

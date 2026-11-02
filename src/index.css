@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #0070F2;
+  --color-primary-dark: #0058C6;
+  --color-primary-light: #EBF4FE;
+  --color-primary-glow: rgba(0, 112, 242, 0.25);
+  --color-accent: #003882;
+  --color-dark: #0B192C;
+  --color-surface: #F8FAFC;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,4 +19,26 @@
 
 .font-display {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Dynamic theme transition */
+body, button, a, div, header, section, footer {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

@@ -144,7 +144,7 @@ export default function Template4Futuristic({ onOpenContact }) {
           <div className="flex items-center gap-3">
             <button 
               onClick={onOpenContact}
-              className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-[#0070F2] hover:from-blue-700 hover:to-blue-600 transition shadow-md shadow-blue-500/20 flex items-center gap-2"
+              className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-[var(--color-primary,#0070F2)] hover:from-blue-700 hover:to-blue-600 transition shadow-md shadow-blue-500/20 flex items-center gap-2"
             >
               <span>Initiate 4-5 Day Sprint</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -166,7 +166,7 @@ export default function Template4Futuristic({ onOpenContact }) {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 font-display leading-[1.05] max-w-4xl mx-auto">
-            The Operating System for Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-[#0070F2] to-sky-500">SAP & AI Enterprises</span>.
+            The Operating System for Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-[var(--color-primary,#0070F2)] to-sky-500">SAP & AI Enterprises</span>.
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -463,14 +463,14 @@ export default function Template4Futuristic({ onOpenContact }) {
             </div>
 
             <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#0070F2] text-white flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-primary,#0070F2)] text-white flex items-center justify-center">
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 font-display">Native Autonomous AI</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 We don't sell generic chatbots. We build autonomous agent swarms that parse multi-page supplier documents, predict inventory spikes, and automate cross-system reconciliation.
               </p>
-              <div className="text-xs font-semibold text-[#0070F2]">🤖 Real Operational EBITDA Lift</div>
+              <div className="text-xs font-semibold text-[var(--color-primary,#0070F2)]">🤖 Real Operational EBITDA Lift</div>
             </div>
           </div>
 
