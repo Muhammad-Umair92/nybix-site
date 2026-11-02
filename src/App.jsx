@@ -1,0 +1,448 @@
+import React, { useState, useEffect } from 'react';
+import Template1Enterprise from './templates/Template1Enterprise.jsx';
+import Template2ModernAI from './templates/Template2ModernAI.jsx';
+import Template3Consultancy from './templates/Template3Consultancy.jsx';
+import { 
+  Layers, 
+  Sparkles, 
+  Check, 
+  X, 
+  Send, 
+  FileText, 
+  CheckCircle2, 
+  ExternalLink,
+  GitBranch,
+  Shield,
+  HelpCircle,
+  Eye,
+  SlidersHorizontal,
+  ArrowRight
+} from 'lucide-react';
+
+export default function App() {
+  const [activeTemplate, setActiveTemplate] = useState(1);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const [isBriefOpen, setIsBriefOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    service: 'SAP Enterprise Solutions',
+    message: ''
+  });
+
+  const handleTemplateChange = (id) => {
+    setActiveTemplate(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setIsContactOpen(false);
+      setFormData({ name: '', email: '', company: '', service: 'SAP Enterprise Solutions', message: '' });
+    }, 2500);
+  };
+
+  return (
+    <div className="relative min-h-screen">
+      
+      {/* =========================================================================
+          TOP MASTER DEMO CONTROLLER (Always Fixed)
+          Allows instant switching between all 3 Blue & White Nybix Templates
+          ========================================================================= */}
+      <div className="sticky top-0 z-50 bg-[#0B192C] text-white border-b border-blue-900/60 shadow-lg px-3 sm:px-6 py-2.5">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+          
+          {/* Brand & Demo Indicator */}
+          <div className="flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
+              N
+            </span>
+            <span className="font-bold tracking-tight text-white font-display hidden sm:inline">
+              NYBIX
+            </span>
+            <span className="px-2 py-0.5 rounded bg-blue-950 border border-blue-800 text-blue-300 font-medium">
+              Demo Switcher
+            </span>
+          </div>
+
+          {/* Template Switcher Tabs */}
+          <div className="flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-lg border border-slate-700">
+            <button
+              onClick={() => handleTemplateChange(1)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition ${
+                activeTemplate === 1
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
+            >
+              <span className="w-4 h-4 rounded-full bg-blue-400/20 flex items-center justify-center text-[10px] font-bold">1</span>
+              <span>Enterprise SAP</span>
+            </button>
+
+            <button
+              onClick={() => handleTemplateChange(2)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition ${
+                activeTemplate === 2
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
+            >
+              <span className="w-4 h-4 rounded-full bg-blue-400/20 flex items-center justify-center text-[10px] font-bold">2</span>
+              <span>Modern Tech & AI</span>
+            </button>
+
+            <button
+              onClick={() => handleTemplateChange(3)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition ${
+                activeTemplate === 3
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
+            >
+              <span className="w-4 h-4 rounded-full bg-blue-400/20 flex items-center justify-center text-[10px] font-bold">3</span>
+              <span>Digital Advisory</span>
+            </button>
+          </div>
+
+          {/* Utility Buttons: Brief & Comparison */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsBriefOpen(true)}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-blue-300 hover:text-white transition font-medium border border-slate-700"
+              title="View Requirements Extracted from Voice Call"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">Requirements Brief</span>
+            </button>
+
+            <button
+              onClick={() => setIsCompareOpen(true)}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-blue-700/80 hover:bg-blue-600 text-white transition font-medium"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <span>Compare (3 Themes)</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {/* =========================================================================
+          ACTIVE TEMPLATE RENDERER
+          ========================================================================= */}
+      <main>
+        {activeTemplate === 1 && <Template1Enterprise onOpenContact={() => setIsContactOpen(true)} />}
+        {activeTemplate === 2 && <Template2ModernAI onOpenContact={() => setIsContactOpen(true)} />}
+        {activeTemplate === 3 && <Template3Consultancy onOpenContact={() => setIsContactOpen(true)} />}
+      </main>
+
+      {/* =========================================================================
+          MODAL 1: REQUIREMENTS BRIEF EXTRACTED FROM CALL
+          ========================================================================= */}
+      {isBriefOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 text-slate-900 shadow-2xl relative">
+            <button 
+              onClick={() => setIsBriefOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
+              <CheckCircle2 className="w-4 h-4" /> Extracted From Audio / Video Sync
+            </div>
+            <h2 className="text-2xl font-bold font-display text-slate-900">
+              Nybix Website Requirements Brief
+            </h2>
+            <p className="text-xs text-slate-500 mt-1">
+              Extracted from internal Google Meet discussion between Faizan Saleem, Muhammad Umair & Rehan Ali Khan.
+            </p>
+
+            <div className="mt-6 space-y-4 text-xs">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 className="font-bold text-blue-900 text-sm mb-1">Project Objective & Timeline</h3>
+                <p className="text-blue-800 leading-relaxed">
+                  Design & launch the official corporate site for Nybix. Target timeline is a rapid <strong>4 to 5 day sprint</strong> with <strong>3-4 approved templates/themes</strong> for executive sign-off.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                  <div className="font-bold text-slate-900 mb-1">Roles & Responsibilities</div>
+                  <ul className="space-y-1 text-slate-600">
+                    <li>• <strong>Muhammad Umair:</strong> UI/UX, theme design & frontend templates.</li>
+                    <li>• <strong>Rehan Ali Khan:</strong> Content strategy & copywriting.</li>
+                    <li>• <strong>Faizan Saleem:</strong> Review, approval & business direction.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                  <div className="font-bold text-slate-900 mb-1">Design & Color Preferences</div>
+                  <ul className="space-y-1 text-slate-600">
+                    <li>• <strong>Color Palette:</strong> Crisp White + Enterprise Blue (SAP / EY style).</li>
+                    <li>• <strong>Aesthetic:</strong> Clean, uncluttered, eye-catching, plain yet authoritative.</li>
+                    <li>• <strong>Industry Benchmark:</strong> Top SAP ecosystem partners & EY consulting.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <h4 className="font-bold text-slate-900 mb-2">Core Business & Service Pillars to Feature:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
+                  <div className="p-2 bg-white rounded border border-slate-200">
+                    <span className="font-bold text-blue-700">1. SAP Services (Core)</span>
+                    <p className="text-[11px] text-slate-500">S/4HANA migration, SAP BTP, Cloud ERP, Basis & Managed Services.</p>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-slate-200">
+                    <span className="font-bold text-blue-700">2. Enterprise AI</span>
+                    <p className="text-[11px] text-slate-500">Autonomous workflow agents, document parsing, predictive intelligence.</p>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-slate-200">
+                    <span className="font-bold text-blue-700">3. Web Development</span>
+                    <p className="text-[11px] text-slate-500">Custom B2B portals, corporate websites, high-scale web platforms.</p>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-slate-200">
+                    <span className="font-bold text-blue-700">4. Mobile Applications</span>
+                    <p className="text-[11px] text-slate-500">iOS & Android field execution apps, warehouse scanning, offline sync.</p>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-slate-200 sm:col-span-2">
+                    <span className="font-bold text-blue-700">5. E-Commerce Development</span>
+                    <p className="text-[11px] text-slate-500">Omnichannel B2B/B2C digital commerce unified directly with ERP inventory.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button 
+                onClick={() => setIsBriefOpen(false)}
+                className="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs"
+              >
+                Close Brief
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =========================================================================
+          MODAL 2: COMPARISON MATRIX (All 3 Templates)
+          ========================================================================= */}
+      {isCompareOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 text-slate-900 shadow-2xl relative">
+            <button 
+              onClick={() => setIsCompareOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Executive Decision Matrix</span>
+            <h2 className="text-2xl font-bold font-display text-slate-900 mt-1">
+              Side-by-Side Template Comparison
+            </h2>
+            <p className="text-xs text-slate-500 mt-1">
+              All 3 options utilize the preferred White & Blue palette while targeting different brand personalities.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4 mt-6 text-xs">
+              
+              {/* Option 1 */}
+              <div className={`p-5 rounded-xl border flex flex-col justify-between ${activeTemplate === 1 ? 'border-blue-600 bg-blue-50/40 ring-2 ring-blue-600/20' : 'border-slate-200 bg-slate-50'}`}>
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-blue-700">Template 1</div>
+                  <h3 className="text-base font-bold text-slate-900 mt-1 mb-2 font-display">Enterprise SAP Leader</h3>
+                  <p className="text-slate-600 text-xs mb-3">
+                    Modeled after SAP global portals and Ernst & Young (EY) enterprise technology pages.
+                  </p>
+                  <ul className="space-y-1.5 text-slate-700">
+                    <li className="flex items-center gap-1.5">✓ Traditional SAP Blue (#0070F2)</li>
+                    <li className="flex items-center gap-1.5">✓ Tabbed Core Service Drill-Downs</li>
+                    <li className="flex items-center gap-1.5">✓ Vertical Industry Practice Cards</li>
+                    <li className="flex items-center gap-1.5">✓ Authority & Compliance Trust Badges</li>
+                  </ul>
+                </div>
+                <button
+                  onClick={() => { setActiveTemplate(1); setIsCompareOpen(false); }}
+                  className="mt-6 w-full py-2 rounded font-semibold text-xs bg-[#0070F2] text-white hover:bg-blue-700 transition"
+                >
+                  {activeTemplate === 1 ? 'Currently Viewing' : 'Switch to Template 1'}
+                </button>
+              </div>
+
+              {/* Option 2 */}
+              <div className={`p-5 rounded-xl border flex flex-col justify-between ${activeTemplate === 2 ? 'border-blue-600 bg-blue-50/40 ring-2 ring-blue-600/20' : 'border-slate-200 bg-slate-50'}`}>
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-blue-700">Template 2</div>
+                  <h3 className="text-base font-bold text-slate-900 mt-1 mb-2 font-display">Modern Tech & AI Innovator</h3>
+                  <p className="text-slate-600 text-xs mb-3">
+                    Silicon Valley modern tech aesthetic (like Stripe, Vercel, modern cloud consultancies).
+                  </p>
+                  <ul className="space-y-1.5 text-slate-700">
+                    <li className="flex items-center gap-1.5">✓ Electric Cobalt (#2563EB) & White</li>
+                    <li className="flex items-center gap-1.5">✓ Interactive Service Filter Grid</li>
+                    <li className="flex items-center gap-1.5">✓ Dynamic 4-Step Velocity Process</li>
+                    <li className="flex items-center gap-1.5">✓ Interactive ROI Savings Calculator</li>
+                  </ul>
+                </div>
+                <button
+                  onClick={() => { setActiveTemplate(2); setIsCompareOpen(false); }}
+                  className="mt-6 w-full py-2 rounded font-semibold text-xs bg-blue-600 text-white hover:bg-blue-700 transition"
+                >
+                  {activeTemplate === 2 ? 'Currently Viewing' : 'Switch to Template 2'}
+                </button>
+              </div>
+
+              {/* Option 3 */}
+              <div className={`p-5 rounded-xl border flex flex-col justify-between ${activeTemplate === 3 ? 'border-blue-600 bg-blue-50/40 ring-2 ring-blue-600/20' : 'border-slate-200 bg-slate-50'}`}>
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-blue-700">Template 3</div>
+                  <h3 className="text-base font-bold text-slate-900 mt-1 mb-2 font-display">Global Digital Advisory</h3>
+                  <p className="text-slate-600 text-xs mb-3">
+                    Executive Big-4 management consultancy style (McKinsey / Deloitte / EY Advisory).
+                  </p>
+                  <ul className="space-y-1.5 text-slate-700">
+                    <li className="flex items-center gap-1.5">✓ Deep Navy (#0B192C) & White</li>
+                    <li className="flex items-center gap-1.5">✓ Strategic Pillar Deep-Dives</li>
+                    <li className="flex items-center gap-1.5">✓ Detailed Executive Case Studies</li>
+                    <li className="flex items-center gap-1.5">✓ Thought Leadership Briefings</li>
+                  </ul>
+                </div>
+                <button
+                  onClick={() => { setActiveTemplate(3); setIsCompareOpen(false); }}
+                  className="mt-6 w-full py-2 rounded font-semibold text-xs bg-[#003882] text-white hover:bg-slate-800 transition"
+                >
+                  {activeTemplate === 3 ? 'Currently Viewing' : 'Switch to Template 3'}
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =========================================================================
+          MODAL 3: CONTACT & CONSULTATION BOOKING
+          ========================================================================= */}
+      {isContactOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 text-slate-900 shadow-2xl relative">
+            <button 
+              onClick={() => setIsContactOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {formSubmitted ? (
+              <div className="text-center py-8 space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 font-display">Consultation Scheduled!</h3>
+                <p className="text-xs text-slate-600">
+                  Thank you! A Nybix principal architect will reach out within 2 business hours with scoping details.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Direct Engagement</span>
+                <h3 className="text-xl font-bold font-display text-slate-900 mt-1 mb-1">
+                  Schedule Scoping Session
+                </h3>
+                <p className="text-xs text-slate-500 mb-6">
+                  Discuss SAP S/4HANA migration, AI agent automation, web apps, or e-commerce scale.
+                </p>
+
+                <form onSubmit={handleFormSubmit} className="space-y-3 text-xs">
+                  <div>
+                    <label className="block font-semibold text-slate-700 mb-1">Your Name</label>
+                    <input 
+                      type="text" 
+                      required
+                      placeholder="e.g. Faizan Saleem / Executive"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-semibold text-slate-700 mb-1">Work Email</label>
+                      <input 
+                        type="email" 
+                        required
+                        placeholder="you@company.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-semibold text-slate-700 mb-1">Company</label>
+                      <input 
+                        type="text" 
+                        required
+                        placeholder="Company Name"
+                        value={formData.company}
+                        onChange={(e) => setFormData({...formData, company: e.target.value})}
+                        className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-slate-700 mb-1">Target Service Area</label>
+                    <select 
+                      value={formData.service}
+                      onChange={(e) => setFormData({...formData, service: e.target.value})}
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
+                    >
+                      <option>SAP Enterprise Solutions (S/4HANA)</option>
+                      <option>Enterprise AI & Autonomous Agents</option>
+                      <option>Custom Web Application Development</option>
+                      <option>Mobile App Development (iOS/Android)</option>
+                      <option>Omnichannel E-Commerce Platforms</option>
+                      <option>Full Multi-Disciplinary Transformation</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-slate-700 mb-1">Project Details / Scope</label>
+                    <textarea 
+                      rows="3"
+                      placeholder="Tell us about your timeline, current system, and goals..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-hidden focus:border-blue-600"
+                    />
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full mt-2 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-md flex items-center justify-center gap-2"
+                  >
+                    <span>Send Consultation Request</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
