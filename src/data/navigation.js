@@ -110,12 +110,12 @@ export const compareTemplates = [
   {
     id: 5,
     label: 'Template 5',
-    title: 'Cyber Luxury AI Matrix (WOW Factor)',
-    desc: 'Silicon Valley AI Lab aesthetic (Raycast, Linear, Vercel Ship) with neon dark ambiance.',
+    title: 'Cyber Luxury AI Matrix',
+    desc: 'Silicon Valley AI Lab aesthetic (Raycast, Linear, Vercel Ship) with neon dark ambiance and titanium light mode.',
     features: [
       '✓ Interactive AP Console OCR 3-Way Simulator',
       '✓ Multi-Leg Trip Planner Route Reasoning Demo',
-      '✓ Deep Space Obsidian Canvas & Neon Ambient Mesh',
+      '✓ Built-in Dark & Light Mode Switcher',
       '✓ Live Dual-Hub Clocks: Dallas (USA) & Karachi (PK)',
     ],
     buttonClass: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold hover:opacity-90 shadow-sm',
@@ -123,15 +123,28 @@ export const compareTemplates = [
   {
     id: 6,
     label: 'Template 6',
-    title: 'Neo-Architect Bento Studio (WOW Factor)',
-    desc: 'Tactile Swiss tech and architectural kinetic bento layout (Stripe, Teenage Engineering, Apple Pro).',
+    title: 'Neo-Architect Bento Studio',
+    desc: 'Tactile Swiss tech and architectural kinetic bento layout (Stripe, Teenage Engineering, Apple Pro) with dual modes.',
     features: [
       '✓ 3-Mode Interactive Hero Architecture Switcher',
       '✓ Massive Interactive Bento Matrix Grid',
-      '✓ Real-Time AP Console ROI & Savings Slider',
+      '✓ Built-in Dark & Light Mode Switcher',
       '✓ Interactive 24/7 Offshore Squad Pod Builder',
     ],
     buttonClass: 'bg-amber-400 text-slate-950 font-bold hover:bg-amber-300 shadow-sm',
+  },
+  {
+    id: 7,
+    label: 'Template 7',
+    title: 'Kinetic Aurora Studio',
+    desc: 'Award-winning creative web design with floating ambient auroras, interactive kinetic telemetry, and live dark/light mode.',
+    features: [
+      '✓ Floating Ambient Aurora & Glassmorphic Mesh',
+      '✓ Interactive Digital Transformation Slider',
+      '✓ Kinetic Solution Engine: AI, SAP & Omnichannel',
+      '✓ Built-in One-Click Dark & Light Mode Switcher',
+    ],
+    buttonClass: 'bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 text-white font-bold hover:opacity-90 shadow-sm',
   },
 ];
 
@@ -143,6 +156,7 @@ export const templateSwitcherTabs = [
   { id: 2, label: 'Modern Tech & AI', short: 'Tech & AI' },
   { id: 3, label: 'Digital Advisory', short: 'Advisory' },
   { id: 4, label: 'Futuristic Tech', short: 'Futuristic' },
-  { id: 5, label: 'Cyber AI Matrix', short: 'Cyber AI', badge: 'WOW' },
-  { id: 6, label: 'Neo-Bento Studio', short: 'Neo Bento', badge: 'WOW' },
+  { id: 5, label: 'Cyber AI Matrix', short: 'Cyber AI' },
+  { id: 6, label: 'Neo-Bento Studio', short: 'Neo Bento' },
+  { id: 7, label: 'Kinetic Aurora Studio', short: 'Aurora' },
 ];

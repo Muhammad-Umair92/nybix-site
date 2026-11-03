@@ -23,10 +23,10 @@ export default function CompareModal({
         Executive Decision Matrix
       </span>
       <h2 className="text-2xl font-bold font-display text-slate-900 mt-1">
-        Side-by-Side Template Comparison (6 Distinct Themes)
+        Side-by-Side Template Comparison (7 Distinct Directions)
       </h2>
       <p className="text-xs text-slate-500 mt-1">
-        Explore all 6 design directions, from traditional enterprise SAP authority to cutting-edge cyber AI matrix and kinetic bento studios.
+        Explore all 7 design directions, from traditional enterprise SAP authority to kinetic aurora studios, cyber AI matrices, and Swiss bento layouts.
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 text-xs">

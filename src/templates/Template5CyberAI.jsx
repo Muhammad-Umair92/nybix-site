@@ -20,6 +20,8 @@ import {
   Smartphone,
   ExternalLink,
   Flame,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { companyInfo } from '../data/company';
 import { template3CaseStudies } from '../data/caseStudies';
@@ -27,14 +29,19 @@ import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import ClientLogoCloud from '../components/ClientLogoCloud';
 import AboutSection from '../components/AboutSection';
+import { cn } from '../lib/cn';
 
 /**
  * Template 5: Cyber Luxury / Deep Space AI Matrix
  * High-impact modern design inspired by Silicon Valley tier-1 AI firms (Linear, Raycast, Vercel Ship).
  * Deep obsidian dark canvas, neon ambient glows, interactive AP Console OCR vision simulator,
- * live multi-leg Trip Planner route engine, and real client proof (PARCO, IMC Toyota, PSO).
+ * live multi-leg Trip Planner route engine, real client proof (PARCO, IMC Toyota, PSO),
+ * and built-in one-click Dark & Light mode toggle.
  */
 export default function Template5CyberAI({ onOpenContact }) {
+  // Built-in Dark / Light Mode Toggle
+  const [isDark, setIsDark] = useState(true);
+
   // Interactive AP Console Scanner State
   const [ocrStep, setOcrStep] = useState(0); // 0: Idle, 1: Scanning, 2: Matched
   const [selectedInvoice, setSelectedInvoice] = useState(0);
@@ -112,25 +119,51 @@ export default function Template5CyberAI({ onOpenContact }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white font-sans selection:bg-cyan-500 selection:text-black">
+    <div
+      className={cn(
+        'min-h-screen font-sans transition-colors duration-300 relative',
+        isDark
+          ? 'bg-[#030712] text-white selection:bg-cyan-500 selection:text-black'
+          : 'bg-[#F8FAFC] text-slate-900 selection:bg-blue-600 selection:text-white'
+      )}
+    >
       
       {/* Sleek Floating Glassmorphic Navbar */}
-      <nav className="sticky top-9 z-30 bg-[#030712]/80 backdrop-blur-xl border-b border-white/10 shadow-2xl transition-all">
+      <nav
+        className={cn(
+          'sticky top-9 z-30 backdrop-blur-xl border-b transition-all duration-300',
+          isDark
+            ? 'bg-[#030712]/80 border-white/10 shadow-2xl'
+            : 'bg-white/80 border-slate-200 shadow-md shadow-slate-200/50'
+        )}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3 group">
               <img
-                src={companyInfo.logos.white}
+                src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
                 alt="NYBIX"
                 className="h-8 sm:h-9 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform"
               />
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-400">
+              <span
+                className={cn(
+                  'hidden sm:inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full border',
+                  isDark
+                    ? 'bg-cyan-950/80 border-cyan-500/40 text-cyan-400'
+                    : 'bg-cyan-50 border-cyan-200 text-cyan-700'
+                )}
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 CYBER MATRIX OS
               </span>
             </a>
 
-            <div className="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-300">
+            <div
+              className={cn(
+                'hidden lg:flex items-center gap-7 text-xs font-semibold',
+                isDark ? 'text-slate-300' : 'text-slate-600'
+              )}
+            >
               <a href="#ap-simulator" className="hover:text-cyan-400 transition flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
                 AP Console Simulator
@@ -143,12 +176,36 @@ export default function Template5CyberAI({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Native Dark / Light Mode Switcher */}
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className={cn(
+                'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition border backdrop-blur-md cursor-pointer',
+                isDark
+                  ? 'bg-white/10 hover:bg-white/20 text-white border-white/20 shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 shadow-sm'
+              )}
+              title="Toggle Dark / Light Mode"
+            >
+              {isDark ? (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="hidden sm:inline">Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-cyan-600" />
+                  <span className="hidden sm:inline">Dark Mode</span>
+                </>
+              )}
+            </button>
+
             <Button
               variant="gradient"
               size="sm"
               shape="pill"
               onClick={onOpenContact}
-              className="gap-2 text-xs bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
+              className="gap-2 text-xs bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 text-white"
             >
               <Zap className="w-3.5 h-3.5" />
               <span>Launch 4-5 Day Sprint</span>
@@ -258,7 +315,7 @@ export default function Template5CyberAI({ onOpenContact }) {
         <ClientLogoCloud dark={true} />
       </div>
 
-      {/* FEATURE SPOTLIGHT 1: Interactive AP Console OCR Simulator (WOW Factor!) */}
+      {/* FEATURE SPOTLIGHT 1: Interactive AP Console OCR Simulator */}
       <section id="ap-simulator" className="py-24 bg-gradient-to-b from-[#030712] via-[#050C1B] to-[#030712] border-b border-white/10 relative overflow-hidden">
         
         {/* Glow behind the simulator */}
@@ -696,8 +753,8 @@ export default function Template5CyberAI({ onOpenContact }) {
         </div>
       </section>
 
-      {/* Official About Us Section (Dark Theme Mode) */}
-      <AboutSection onOpenContact={onOpenContact} dark={true} />
+      {/* Official About Us Section (Dynamic Theme Mode) */}
+      <AboutSection onOpenContact={onOpenContact} dark={isDark} />
 
       {/* GLOBAL DELIVERY COCKPIT (Dallas & Karachi Clocks) */}
       <section className="py-20 bg-[#030712] border-t border-white/10">
@@ -791,6 +848,32 @@ export default function Template5CyberAI({ onOpenContact }) {
           </div>
         </div>
       </footer>
+
+      {/* Floating Dark/Light Mode Pill in Bottom Right Corner */}
+      <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
+        <button
+          onClick={() => setIsDark(!isDark)}
+          className={cn(
+            'flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition shadow-2xl border backdrop-blur-xl cursor-pointer hover:scale-105',
+            isDark
+              ? 'bg-slate-900/90 text-white border-cyan-500/40 shadow-cyan-500/20'
+              : 'bg-white/95 text-slate-900 border-slate-300 shadow-slate-300/60'
+          )}
+          title="Switch Dark / Light Mode"
+        >
+          {isDark ? (
+            <>
+              <Sun className="w-4 h-4 text-amber-400" />
+              <span>Switch to Light Mode</span>
+            </>
+          ) : (
+            <>
+              <Moon className="w-4 h-4 text-indigo-600" />
+              <span>Switch to Dark Mode</span>
+            </>
+          )}
+        </button>
+      </div>
 
     </div>
   );

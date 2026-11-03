@@ -22,6 +22,8 @@ import {
   Fuel,
   Headphones,
   RotateCw,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { companyInfo } from '../data/company';
 import { template3CaseStudies } from '../data/caseStudies';
@@ -29,14 +31,19 @@ import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import ClientLogoCloud from '../components/ClientLogoCloud';
 import AboutSection from '../components/AboutSection';
+import { cn } from '../lib/cn';
 
 /**
  * Template 6: Neo-Architect / Swiss Tech Kinetic Bento Studio
  * High-end architectural tech design inspired by Stripe, Teenage Engineering, Apple Pro, and Cosmos.
  * Tactile micro-interactions, live 3-mode architectural cockpit in the hero,
- * interactive ROI and pod builder, and real enterprise case studies (IMC Toyota, PARCO, PSO).
+ * interactive ROI and pod builder, real enterprise case studies (IMC Toyota, PARCO, PSO),
+ * and built-in one-click Dark & Light mode toggle.
  */
 export default function Template6NeoBento({ onOpenContact }) {
+  // Built-in Dark / Light Mode Toggle
+  const [isDark, setIsDark] = useState(true);
+
   // Hero 3-Mode Architecture Switcher
   const [heroMode, setHeroMode] = useState(0);
 
@@ -120,24 +127,50 @@ export default function Template6NeoBento({ onOpenContact }) {
   const estimatedCostSaved = Math.round(annualHoursSaved * 45);
 
   return (
-    <div className="min-h-screen bg-[#0A0D14] text-slate-100 font-sans selection:bg-amber-400 selection:text-black">
+    <div
+      className={cn(
+        'min-h-screen font-sans transition-colors duration-300 relative',
+        isDark
+          ? 'bg-[#0A0D14] text-slate-100 selection:bg-amber-400 selection:text-black'
+          : 'bg-[#F8FAFC] text-slate-900 selection:bg-amber-500 selection:text-white'
+      )}
+    >
       
       {/* Swiss Architectural Top Bar */}
-      <header className="sticky top-9 z-30 bg-[#0A0D14]/90 backdrop-blur-xl border-b border-white/10 shadow-lg transition-all">
+      <header
+        className={cn(
+          'sticky top-9 z-30 backdrop-blur-xl border-b transition-all duration-300',
+          isDark
+            ? 'bg-[#0A0D14]/90 border-white/10 shadow-lg'
+            : 'bg-white/90 border-slate-200 shadow-md shadow-slate-200/50'
+        )}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3 group">
               <img
-                src={companyInfo.logos.white}
+                src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
                 alt="NYBIX"
                 className="h-8 sm:h-9 w-auto object-contain brightness-110"
               />
-              <span className="hidden md:inline-block font-mono text-[10px] text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded">
+              <span
+                className={cn(
+                  'hidden md:inline-block font-mono text-[10px] px-2 py-0.5 rounded border',
+                  isDark
+                    ? 'text-amber-400 bg-amber-400/10 border-amber-400/30'
+                    : 'text-amber-700 bg-amber-50 border-amber-300'
+                )}
+              >
                 NEO-BENTO STUDIO
               </span>
             </a>
 
-            <nav className="hidden lg:flex items-center gap-7 text-xs font-mono font-medium text-slate-300">
+            <nav
+              className={cn(
+                'hidden lg:flex items-center gap-7 text-xs font-mono font-medium',
+                isDark ? 'text-slate-300' : 'text-slate-600'
+              )}
+            >
               <a href="#bento-matrix" className="hover:text-amber-400 transition">01 // BENTO MATRIX</a>
               <a href="#pod-builder" className="hover:text-amber-400 transition">02 // OFFSHORE PODS</a>
               <a href="#case-studies" className="hover:text-amber-400 transition">03 // CLIENT DOSSIERS</a>
@@ -146,11 +179,35 @@ export default function Template6NeoBento({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Native Dark / Light Mode Switcher */}
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className={cn(
+                'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold transition border backdrop-blur-md cursor-pointer',
+                isDark
+                  ? 'bg-white/10 hover:bg-white/20 text-white border-white/20 shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 shadow-sm'
+              )}
+              title="Toggle Dark / Light Mode"
+            >
+              {isDark ? (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="hidden sm:inline">Light</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-amber-600" />
+                  <span className="hidden sm:inline">Dark</span>
+                </>
+              )}
+            </button>
+
             <Button
               variant="outline"
               size="sm"
               onClick={onOpenContact}
-              className="text-xs font-mono border-amber-400/40 text-amber-300 hover:bg-amber-400/10"
+              className="text-xs font-mono border-amber-400/40 text-amber-400 hover:bg-amber-400/10"
             >
               <span>[ESTIMATE SPRINT]</span>
             </Button>
@@ -299,7 +356,7 @@ export default function Template6NeoBento({ onOpenContact }) {
         <ClientLogoCloud dark={true} />
       </div>
 
-      {/* MASSIVE INTERACTIVE BENTO GRID (WOW FACTOR) */}
+      {/* MASSIVE INTERACTIVE BENTO GRID */}
       <section id="bento-matrix" className="py-24 bg-[#0A0D14] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           
@@ -526,7 +583,7 @@ export default function Template6NeoBento({ onOpenContact }) {
         </div>
       </section>
 
-      {/* DEDICATED 24/7 OFFSHORE POD BUILDER (WOW FACTOR) */}
+      {/* DEDICATED 24/7 OFFSHORE POD BUILDER */}
       <section id="pod-builder" className="py-24 bg-gradient-to-b from-[#0A0D14] via-[#0E1320] to-[#0A0D14] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           
@@ -631,8 +688,8 @@ export default function Template6NeoBento({ onOpenContact }) {
         </div>
       </section>
 
-      {/* Official About Us Section (Dark Mode Integration) */}
-      <AboutSection onOpenContact={onOpenContact} dark={true} />
+      {/* Official About Us Section (Dynamic Mode Integration) */}
+      <AboutSection onOpenContact={onOpenContact} dark={isDark} />
 
       {/* Neo-Architect Minimalist Footer */}
       <footer className="bg-slate-950 text-slate-400 text-xs py-14 border-t border-white/10 font-mono">
@@ -686,6 +743,32 @@ export default function Template6NeoBento({ onOpenContact }) {
           </div>
         </div>
       </footer>
+
+      {/* Floating Dark/Light Mode Pill in Bottom Right Corner */}
+      <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
+        <button
+          onClick={() => setIsDark(!isDark)}
+          className={cn(
+            'flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-mono font-bold transition shadow-2xl border backdrop-blur-xl cursor-pointer hover:scale-105',
+            isDark
+              ? 'bg-slate-900/90 text-white border-amber-500/40 shadow-amber-500/20'
+              : 'bg-white/95 text-slate-900 border-slate-300 shadow-slate-300/60'
+          )}
+          title="Switch Dark / Light Mode"
+        >
+          {isDark ? (
+            <>
+              <Sun className="w-4 h-4 text-amber-400" />
+              <span>Switch to Light Mode</span>
+            </>
+          ) : (
+            <>
+              <Moon className="w-4 h-4 text-amber-600" />
+              <span>Switch to Dark Mode</span>
+            </>
+          )}
+        </button>
+      </div>
 
     </div>
   );

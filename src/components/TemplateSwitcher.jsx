@@ -33,7 +33,7 @@ export default function TemplateSwitcher({
           </span>
         </div>
 
-        {/* Center: Sleek 6-Template Segmented Control (Zero Scrollbar, Fully Responsive) */}
+        {/* Center: Sleek 7-Template Segmented Control (Zero Scrollbar, Fully Responsive) */}
         <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-inner overflow-x-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {templateSwitcherTabs.map((tab) => {
             const isActive = activeTemplate === tab.id;
@@ -69,16 +69,6 @@ export default function TemplateSwitcher({
                   <span className="hidden 2xl:inline">{tab.label}</span>
                   <span className="2xl:hidden">{tab.short}</span>
                 </span>
-                {tab.badge && (
-                  <span className={cn(
-                    'text-[8px] font-extrabold px-1 py-0.2 rounded tracking-wider uppercase',
-                    isActive 
-                      ? 'bg-amber-400 text-slate-950' 
-                      : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-                  )}>
-                    {tab.badge}
-                  </span>
-                )}
               </button>
             );
           })}
@@ -93,7 +83,7 @@ export default function TemplateSwitcher({
           >
             <SlidersHorizontal className="w-3 h-3" />
             <span className="hidden sm:inline">Compare</span>
-            <span className="sm:hidden">6</span>
+            <span className="sm:hidden">7</span>
           </button>
           
           <a
