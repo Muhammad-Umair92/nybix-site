@@ -23,14 +23,13 @@ export default function CompareModal({
         Executive Decision Matrix
       </span>
       <h2 className="text-2xl font-bold font-display text-slate-900 mt-1">
-        Side-by-Side Template Comparison (4 Themes)
+        Side-by-Side Template Comparison (6 Distinct Themes)
       </h2>
       <p className="text-xs text-slate-500 mt-1">
-        All 4 options utilize the preferred White & Blue palette while targeting
-        different brand personalities and buyer audiences.
+        Explore all 6 design directions, from traditional enterprise SAP authority to cutting-edge cyber AI matrix and kinetic bento studios.
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 text-xs">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 text-xs">
         {compareTemplates.map((tpl) => (
           <div
             key={tpl.id}

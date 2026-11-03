@@ -33,8 +33,8 @@ export default function TemplateSwitcher({
           </span>
         </div>
 
-        {/* Center: Sleek 4-Template Segmented Control */}
-        <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-inner">
+        {/* Center: Sleek 6-Template Segmented Control */}
+        <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-inner overflow-x-auto no-scrollbar">
           {templateSwitcherTabs.map((tab) => {
             const isActive = activeTemplate === tab.id;
             return (
@@ -42,7 +42,7 @@ export default function TemplateSwitcher({
                 key={tab.id}
                 onClick={() => onTemplateChange(tab.id)}
                 className={cn(
-                  'flex items-center gap-1.5 px-3 py-1 rounded-lg font-medium text-[11px] transition-all cursor-pointer',
+                  'flex items-center gap-1.5 px-2.5 py-1 rounded-lg font-medium text-[11px] transition-all cursor-pointer whitespace-nowrap',
                   isActive
                     ? 'text-white shadow-sm font-semibold'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
@@ -61,7 +61,7 @@ export default function TemplateSwitcher({
                 >
                   {tab.id}
                 </span>
-                <span className="hidden sm:inline">{tab.label}</span>
+                <span className="hidden lg:inline">{tab.label}</span>
               </button>
             );
           })}
@@ -76,7 +76,7 @@ export default function TemplateSwitcher({
           >
             <SlidersHorizontal className="w-3 h-3" />
             <span className="hidden sm:inline">Compare</span>
-            <span className="sm:hidden">4</span>
+            <span className="sm:hidden">6</span>
           </button>
           
           <a

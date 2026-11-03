@@ -3,6 +3,8 @@ import Template1Enterprise from './templates/Template1Enterprise.jsx';
 import Template2ModernAI from './templates/Template2ModernAI.jsx';
 import Template3Consultancy from './templates/Template3Consultancy.jsx';
 import Template4Futuristic from './templates/Template4Futuristic.jsx';
+import Template5CyberAI from './templates/Template5CyberAI.jsx';
+import Template6NeoBento from './templates/Template6NeoBento.jsx';
 import TemplateSwitcher from './components/TemplateSwitcher';
 import CompareModal from './components/CompareModal';
 import ContactModal from './components/ContactModal';
@@ -40,6 +42,12 @@ export default function App() {
         )}
         {activeTemplate === 4 && (
           <Template4Futuristic onOpenContact={() => setIsContactOpen(true)} />
+        )}
+        {activeTemplate === 5 && (
+          <Template5CyberAI onOpenContact={() => setIsContactOpen(true)} />
+        )}
+        {activeTemplate === 6 && (
+          <Template6NeoBento onOpenContact={() => setIsContactOpen(true)} />
         )}
       </main>
 

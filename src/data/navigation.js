@@ -107,6 +107,32 @@ export const compareTemplates = [
     ],
     buttonClass: 'bg-gradient-to-r from-blue-600 to-[#0070F2] text-white hover:from-blue-700 hover:to-blue-600 shadow-sm',
   },
+  {
+    id: 5,
+    label: 'Template 5',
+    title: 'Cyber Luxury AI Matrix (WOW Factor)',
+    desc: 'Silicon Valley AI Lab aesthetic (Raycast, Linear, Vercel Ship) with neon dark ambiance.',
+    features: [
+      '✓ Interactive AP Console OCR 3-Way Simulator',
+      '✓ Multi-Leg Trip Planner Route Reasoning Demo',
+      '✓ Deep Space Obsidian Canvas & Neon Ambient Mesh',
+      '✓ Live Dual-Hub Clocks: Dallas (USA) & Karachi (PK)',
+    ],
+    buttonClass: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold hover:opacity-90 shadow-sm',
+  },
+  {
+    id: 6,
+    label: 'Template 6',
+    title: 'Neo-Architect Bento Studio (WOW Factor)',
+    desc: 'Tactile Swiss tech and architectural kinetic bento layout (Stripe, Teenage Engineering, Apple Pro).',
+    features: [
+      '✓ 3-Mode Interactive Hero Architecture Switcher',
+      '✓ Massive Interactive Bento Matrix Grid',
+      '✓ Real-Time AP Console ROI & Savings Slider',
+      '✓ Interactive 24/7 Offshore Squad Pod Builder',
+    ],
+    buttonClass: 'bg-amber-400 text-slate-950 font-bold hover:bg-amber-300 shadow-sm',
+  },
 ];
 
 /**
@@ -117,4 +143,6 @@ export const templateSwitcherTabs = [
   { id: 2, label: 'Modern Tech & AI' },
   { id: 3, label: 'Digital Advisory' },
   { id: 4, label: 'Futuristic Tech' },
+  { id: 5, label: 'Cyber AI Matrix' },
+  { id: 6, label: 'Neo-Bento Studio' },
 ];
