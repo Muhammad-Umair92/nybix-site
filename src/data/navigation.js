@@ -139,10 +139,10 @@ export const compareTemplates = [
  * Template switcher tabs
  */
 export const templateSwitcherTabs = [
-  { id: 1, label: 'Enterprise SAP' },
-  { id: 2, label: 'Modern Tech & AI' },
-  { id: 3, label: 'Digital Advisory' },
-  { id: 4, label: 'Futuristic Tech' },
-  { id: 5, label: 'Cyber AI Matrix' },
-  { id: 6, label: 'Neo-Bento Studio' },
+  { id: 1, label: 'Enterprise SAP', short: 'SAP' },
+  { id: 2, label: 'Modern Tech & AI', short: 'Tech & AI' },
+  { id: 3, label: 'Digital Advisory', short: 'Advisory' },
+  { id: 4, label: 'Futuristic Tech', short: 'Futuristic' },
+  { id: 5, label: 'Cyber AI Matrix', short: 'Cyber AI', badge: 'WOW' },
+  { id: 6, label: 'Neo-Bento Studio', short: 'Neo Bento', badge: 'WOW' },
 ];
