@@ -32,7 +32,7 @@ export default function Template4Futuristic({ onOpenContact }) {
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3">
               <img
-                src="/logo/nybix-logo-clean.png"
+                src={companyInfo.logos.clean}
                 alt="NYBIX"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
@@ -493,7 +493,7 @@ export default function Template4Futuristic({ onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 space-y-4">
             <img
-              src="/logo/nybix-logo-white.png"
+              src={companyInfo.logos.white}
               alt="NYBIX Technologies"
               className="h-8 w-auto object-contain brightness-110"
             />

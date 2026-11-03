@@ -34,7 +34,7 @@ export default function Template3Consultancy({ onOpenContact }) {
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-3">
               <img
-                src="/logo/nybix-logo-clean.png"
+                src={companyInfo.logos.clean}
                 alt="NYBIX Consulting & Advisory"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
@@ -360,7 +360,7 @@ export default function Template3Consultancy({ onOpenContact }) {
           <div>
             <div className="mb-2">
               <img
-                src="/logo/nybix-logo-white.png"
+                src={companyInfo.logos.white}
                 alt="NYBIX Advisory & Consulting"
                 className="h-7 w-auto object-contain brightness-110"
               />

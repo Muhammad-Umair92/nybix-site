@@ -1,3 +1,6 @@
+import logoClean from '../assets/logo/nybix-logo-clean.png';
+import logoWhite from '../assets/logo/nybix-logo-white.png';
+
 /**
  * Official Nyabix Company Information, Contact Channels, Real Clients & Proprietary Products
  * Source: Official Requirements Brief (Nyabix_Website_Details.md & WhatsApp Scoping Brief)
@@ -6,6 +9,10 @@
 export const companyInfo = {
   name: 'Nyabix Technologies',
   email: 'nyabix.tech@gmail.com',
+  logos: {
+    clean: logoClean,
+    white: logoWhite,
+  },
   phones: {
     pkDisplay: '+92 300 1NYABIX / +92 300 1692249',
     pkCall: '+923001692249',

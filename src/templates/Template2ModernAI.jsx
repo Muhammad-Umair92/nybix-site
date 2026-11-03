@@ -50,7 +50,7 @@ export default function Template2ModernAI({ onOpenContact }) {
           <div className="flex items-center gap-8">
             <a href="#" className="flex items-center gap-2.5">
               <img
-                src="/logo/nybix-logo-clean.png"
+                src={companyInfo.logos.clean}
                 alt="NYBIX Tech"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
@@ -439,7 +439,7 @@ export default function Template2ModernAI({ onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="/logo/nybix-logo-clean.png"
+              src={companyInfo.logos.clean}
               alt="NYBIX Tech"
               className="h-6 w-auto object-contain"
             />

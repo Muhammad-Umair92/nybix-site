@@ -36,7 +36,7 @@ export default function Template1Enterprise({ onOpenContact }) {
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
               <img
-                src="/logo/nybix-logo-clean.png"
+                src={companyInfo.logos.clean}
                 alt="NYBIX Enterprise Solutions"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
@@ -391,7 +391,7 @@ export default function Template1Enterprise({ onOpenContact }) {
           <div className="col-span-2 space-y-3">
             <div className="flex items-center gap-2">
               <img
-                src="/logo/nybix-logo-white.png"
+                src={companyInfo.logos.white}
                 alt="NYBIX Technologies"
                 className="h-7 w-auto object-contain brightness-110"
               />
