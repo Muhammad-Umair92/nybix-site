@@ -9,6 +9,8 @@ import logoWhite from '../assets/logo/nybix-logo-white.png';
 export const companyInfo = {
   name: 'Nyabix Technologies',
   email: 'nyabix.tech@gmail.com',
+  logoClean: logoClean,
+  logoWhite: logoWhite,
   logos: {
     clean: logoClean,
     white: logoWhite,

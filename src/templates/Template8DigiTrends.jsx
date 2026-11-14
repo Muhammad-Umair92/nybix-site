@@ -318,10 +318,9 @@ export default function Template8DigiTrends({ onOpenContact }) {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
-              src={companyInfo.logoClean}
+              src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
               alt={companyInfo.name}
-              className="h-8 w-auto object-contain"
-              style={{ filter: isDark ? 'brightness(0) invert(1)' : 'none' }}
+              className="h-8 sm:h-9 w-auto object-contain"
             />
           </div>
 

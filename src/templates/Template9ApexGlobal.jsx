@@ -214,12 +214,11 @@ export default function Template9ApexGlobal({ onOpenContact }) {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src={companyInfo.logoClean}
+              src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
               alt={companyInfo.name}
-              className="h-8 w-auto object-contain"
-              style={{ filter: isDark ? 'brightness(0) invert(1)' : 'none' }}
+              className="h-8 sm:h-9 w-auto object-contain"
             />
-            <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-slate-700/30">
+            <div className="hidden sm:flex items-center gap-2 pl-3 border-l" style={{ borderColor: border }}>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-[11px] font-semibold tracking-wider uppercase" style={{ color: textMuted }}>
                 Enterprise Sovereign Practice
@@ -237,11 +236,12 @@ export default function Template9ApexGlobal({ onOpenContact }) {
                   'px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap',
                   activePillar === p.id
                     ? 'text-white shadow-sm'
-                    : 'hover:text-white'
+                    : isDark
+                      ? 'text-slate-400 hover:text-white'
+                      : 'text-slate-600 hover:text-slate-950'
                 )}
                 style={{
                   backgroundColor: activePillar === p.id ? 'var(--color-primary, #0070F2)' : 'transparent',
-                  color: activePillar === p.id ? '#ffffff' : textMuted,
                 }}
               >
                 {p.label}
@@ -422,12 +422,25 @@ export default function Template9ApexGlobal({ onOpenContact }) {
                   <span
                     className={cn(
                       'text-[10px] font-bold uppercase tracking-wider block mb-1',
-                      isSelected ? 'text-white/80' : 'text-slate-400'
+                      isSelected
+                        ? 'text-white/90'
+                        : isDark
+                          ? 'text-slate-400'
+                          : 'text-slate-600'
                     )}
                   >
                     {p.tag}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold block leading-tight">
+                  <span
+                    className={cn(
+                      'text-xs sm:text-sm font-bold block leading-tight',
+                      isSelected
+                        ? 'text-white'
+                        : isDark
+                          ? 'text-slate-100'
+                          : 'text-slate-950'
+                    )}
+                  >
                     {p.label}
                   </span>
                 </button>
@@ -514,7 +527,7 @@ export default function Template9ApexGlobal({ onOpenContact }) {
                   <div className="flex items-center justify-between pb-3 border-b" style={{ borderColor: border }}>
                     <div className="flex items-center gap-2">
                       <Activity className="w-4 h-4" style={{ color: 'var(--color-primary, #0070F2)' }} />
-                      <span className="text-xs font-bold uppercase tracking-wider">
+                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: text }}>
                         Production Impact Telemetry
                       </span>
                     </div>
@@ -525,7 +538,14 @@ export default function Template9ApexGlobal({ onOpenContact }) {
 
                   <div className="space-y-4">
                     {currentPillar.metrics.map((m, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-3 rounded-xl border bg-black/10" style={{ borderColor: border }}>
+                      <div
+                        key={idx}
+                        className={cn(
+                          'flex items-center justify-between p-3 rounded-xl border transition-all',
+                          isDark ? 'bg-black/20' : 'bg-white shadow-xs'
+                        )}
+                        style={{ borderColor: border }}
+                      >
                         <span className="text-xs font-medium" style={{ color: textMuted }}>
                           {m.label}
                         </span>
@@ -604,12 +624,12 @@ export default function Template9ApexGlobal({ onOpenContact }) {
                   </h3>
 
                   <div className="text-xs mb-4 leading-relaxed" style={{ color: textMuted }}>
-                    <strong className="text-slate-200 block mb-1">Challenge:</strong>
+                    <strong className={cn("block mb-1 font-bold", isDark ? "text-slate-200" : "text-slate-900")}>Challenge:</strong>
                     {cs.challenge}
                   </div>
 
                   <div className="text-xs mb-6 leading-relaxed" style={{ color: textMuted }}>
-                    <strong className="text-slate-200 block mb-1">Impact:</strong>
+                    <strong className={cn("block mb-1 font-bold", isDark ? "text-slate-200" : "text-slate-900")}>Impact:</strong>
                     {cs.impact}
                   </div>
                 </div>
@@ -834,3 +854,4 @@ export default function Template9ApexGlobal({ onOpenContact }) {
     </div>
   );
 }
+
