@@ -485,24 +485,8 @@ export default function Template8DigiTrends({ onOpenContact }) {
       </div>
 
       {/* ── Clients ── */}
-      <div className="py-16 px-6" id="clients">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <span
-              className="text-xs font-bold tracking-widest uppercase mb-2 inline-block"
-              style={{ color: 'var(--color-primary, #0070F2)' }}
-            >
-              Trusted By
-            </span>
-            <h3
-              className="font-black text-2xl sm:text-3xl"
-              style={{ color: text, fontFamily: '"Rubik", sans-serif' }}
-            >
-              Clients That Lead Their Industries
-            </h3>
-          </div>
-          <ClientLogoCloud isDark={isDark} />
-        </div>
+      <div id="clients">
+        <ClientLogoCloud isDark={isDark} />
       </div>
 
       {/* ── Case Studies ── */}

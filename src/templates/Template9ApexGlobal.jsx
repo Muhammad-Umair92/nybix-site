@@ -386,13 +386,8 @@ export default function Template9ApexGlobal({ onOpenContact }) {
       </section>
 
       {/* ── Client Proof Logo Cloud ── */}
-      <section className="py-12 border-y relative z-10" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <span className="text-[11px] font-bold tracking-widest uppercase mb-6 inline-block" style={{ color: textMuted }}>
-            Trusted by Pakistan’s Largest Energy, Automotive & Industrial Giants
-          </span>
-          <ClientLogoCloud isDark={isDark} />
-        </div>
+      <section id="clients" className="relative z-10">
+        <ClientLogoCloud isDark={isDark} />
       </section>
 
       {/* ── Interactive Adobe-Style Solution Stage ── */}
