@@ -189,7 +189,7 @@ export default function Template9ApexGlobal({ onOpenContact }) {
         @keyframes apexMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .apex-glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .apex-gradient-text {
-          background: linear-gradient(135deg, var(--color-primary, #0070F2), #38bdf8, #818cf8);
+          background: linear-gradient(135deg, var(--color-primary, #0070F2), #0284c7, #4338ca);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -211,67 +211,74 @@ export default function Template9ApexGlobal({ onOpenContact }) {
       <nav
         className="sticky top-0 z-30 border-b transition-colors duration-300 apex-glass"
         style={{
-          backgroundColor: isDark ? 'rgba(6, 9, 14, 0.85)' : 'rgba(255, 255, 255, 0.9)',
+          backgroundColor: isDark ? 'rgba(6, 9, 14, 0.85)' : 'rgba(255, 255, 255, 0.95)',
           borderColor: border,
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
           {/* Brand */}
-          <div className="flex items-center gap-3">
-            <img
-              src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
-              alt={companyInfo.name}
-              className="h-8 sm:h-9 w-auto object-contain"
-            />
-            <div className="hidden sm:flex items-center gap-2 pl-3 border-l" style={{ borderColor: border }}>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] font-semibold tracking-wider uppercase" style={{ color: textMuted }}>
-                Enterprise Sovereign Practice
-              </span>
-            </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <a href="#" className="flex items-center gap-2">
+              <img
+                src={isDark ? companyInfo.logos.white : companyInfo.logos.clean}
+                alt={companyInfo.name}
+                className="h-8 sm:h-9 w-auto object-contain"
+              />
+            </a>
+            <span
+              className="hidden 2xl:inline-block text-[11px] font-semibold tracking-wider uppercase pl-3 border-l"
+              style={{ borderColor: border, color: textMuted }}
+            >
+              Enterprise Sovereign Practice
+            </span>
           </div>
 
-          {/* Quick Pillar Jump Navigation (Adobe Style) */}
-          <div className="hidden xl:flex items-center gap-1 p-1 rounded-full border" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
-            {solutionPillars.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setActivePillar(p.id)}
-                className={cn(
-                  'px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap',
-                  activePillar === p.id
-                    ? 'text-white shadow-sm'
-                    : isDark
-                      ? 'text-slate-400 hover:text-white'
-                      : 'text-slate-600 hover:text-slate-950'
-                )}
-                style={{
-                  backgroundColor: activePillar === p.id ? 'var(--color-primary, #0070F2)' : 'transparent',
-                }}
-              >
-                {p.label}
-              </button>
-            ))}
+          {/* Clean Executive Anchor Links (Adobe & SAP Structure) */}
+          <div className="hidden lg:flex items-center gap-7 text-xs font-semibold">
+            <a
+              href="#interactive-stage"
+              className="transition-colors hover:text-[var(--color-primary)]"
+              style={{ color: textMuted }}
+            >
+              Solutions Stage
+            </a>
+            <a
+              href="#case-studies"
+              className="transition-colors hover:text-[var(--color-primary)]"
+              style={{ color: textMuted }}
+            >
+              Case Studies
+            </a>
+            <a
+              href="#delivery"
+              className="transition-colors hover:text-[var(--color-primary)]"
+              style={{ color: textMuted }}
+            >
+              Global Delivery (24/7)
+            </a>
+            <a
+              href="#about-section"
+              className="transition-colors hover:text-[var(--color-primary)]"
+              style={{ color: textMuted }}
+            >
+              About Nyabix
+            </a>
           </div>
 
-          {/* Dual-Hub Status & Quick Action */}
-          <div className="flex items-center gap-3">
-            <div className="hidden md:flex flex-col text-right">
-              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'var(--color-primary, #0070F2)' }}>
-                Dallas (USA) • Karachi (PK)
-              </span>
-              <a
-                href={`tel:${companyInfo.phones.pkCall}`}
-                className="text-xs font-medium hover:underline"
-                style={{ color: textMuted }}
-              >
-                {companyInfo.phones.pkDisplay}
-              </a>
-            </div>
+          {/* Dual-Hub Contact & Action Button */}
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <a
+              href={`tel:${companyInfo.phones.pkCall}`}
+              className="hidden md:flex items-center gap-1.5 text-xs font-semibold hover:underline shrink-0"
+              style={{ color: textMuted }}
+            >
+              <Phone className="w-3.5 h-3.5 text-emerald-500" />
+              <span>{companyInfo.phones.pkDisplay}</span>
+            </a>
 
             <button
               onClick={onOpenContact}
-              className="px-5 py-2 text-white text-xs font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-2.5 text-white text-xs font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-1.5 cursor-pointer shrink-0"
               style={{
                 backgroundColor: 'var(--color-primary, #0070F2)',
                 boxShadow: '0 4px 15px -3px var(--color-primary-glow, rgba(0, 112, 242, 0.4))',
@@ -587,7 +594,7 @@ export default function Template9ApexGlobal({ onOpenContact }) {
       </section>
 
       {/* ── Verified Enterprise Case Studies (PARCO, IMC, PSO) ── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 border-t relative z-10" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
+      <section id="case-studies" className="py-24 px-4 sm:px-6 lg:px-8 border-t relative z-10" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -659,7 +666,7 @@ export default function Template9ApexGlobal({ onOpenContact }) {
       </section>
 
       {/* ── Global Delivery Engine: Dallas + Karachi (Folio3 Pod Model) ── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
+      <section id="delivery" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="rounded-3xl border p-8 sm:p-14 relative overflow-hidden shadow-2xl"
             style={{
@@ -746,7 +753,7 @@ export default function Template9ApexGlobal({ onOpenContact }) {
       </section>
 
       {/* ── About Nyabix Standard Section ── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t relative z-10" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
+      <section id="about-section" className="py-20 px-4 sm:px-6 lg:px-8 border-t relative z-10" style={{ borderColor: border, backgroundColor: surfaceSubtle }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span

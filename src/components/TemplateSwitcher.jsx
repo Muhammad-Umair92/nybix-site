@@ -33,7 +33,7 @@ export default function TemplateSwitcher({
           </span>
         </div>
 
-        {/* Center: Sleek 7-Template Segmented Control (Zero Scrollbar, Fully Responsive) */}
+        {/* Center: Sleek 9-Template Segmented Control (Zero Scrollbar, Fully Responsive) */}
         <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-inner overflow-x-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {templateSwitcherTabs.map((tab) => {
             const isActive = activeTemplate === tab.id;
@@ -41,6 +41,7 @@ export default function TemplateSwitcher({
               <button
                 key={tab.id}
                 onClick={() => onTemplateChange(tab.id)}
+                title={tab.label}
                 className={cn(
                   'flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-lg font-medium text-[11px] transition-all cursor-pointer whitespace-nowrap shrink-0',
                   isActive
@@ -61,13 +62,12 @@ export default function TemplateSwitcher({
                 >
                   {tab.id}
                 </span>
-                {/* On mobile: show text only for active tab. On md+: show short label. On 2xl: show full label */}
+                {/* Clean, compact, non-overflowing label */}
                 <span className={cn(
-                  isActive ? 'inline' : 'hidden md:inline',
+                  isActive ? 'inline' : 'hidden lg:inline',
                   'transition-all'
                 )}>
-                  <span className="hidden 2xl:inline">{tab.label}</span>
-                  <span className="2xl:hidden">{tab.short}</span>
+                  {tab.short}
                 </span>
               </button>
             );
