@@ -15,13 +15,13 @@ import ContactModal from './components/ContactModal';
 import ThemePicker from './components/ThemePicker';
 
 export default function App() {
-  // Active template state (persisted in localStorage + URL override)
+  // Active template state (persisted in localStorage + URL override, default: 9)
   const [activeTemplate, setActiveTemplate] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
       const urlTpl = parseInt(params.get('template') || params.get('t'), 10);
       if (urlTpl >= 1 && urlTpl <= 9) return urlTpl;
-      const saved = localStorage.getItem('nybix_active_template');
+      const saved = localStorage.getItem('nybix_active_template_v2');
       const parsed = parseInt(saved, 10);
       return parsed >= 1 && parsed <= 9 ? parsed : 9;
     } catch {
@@ -52,7 +52,7 @@ export default function App() {
   const handleTemplateChange = (id) => {
     setActiveTemplate(id);
     try {
-      localStorage.setItem('nybix_active_template', String(id));
+      localStorage.setItem('nybix_active_template_v2', String(id));
     } catch (e) {
       // storage unavailable
     }
