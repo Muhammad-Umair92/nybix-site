@@ -159,6 +159,19 @@ export const compareTemplates = [
     ],
     buttonClass: 'bg-[#ff0000] text-white font-bold hover:bg-[#cc0000] shadow-sm',
   },
+  {
+    id: 9,
+    label: 'Template 9',
+    title: 'Apex Sovereign Studio',
+    desc: 'Best-of-Best synthesis of Adobe, SAP, DigiTrends, Adbio & Folio3 — interactive solution stage, dual-hub pod model, and live theme synchronization.',
+    features: [
+      '✓ Adobe-Style Interactive Solution Stage',
+      '✓ SAP Mission-Critical Enterprise Authority',
+      '✓ Folio3 Dual-Hub Global 24/7 Delivery Pods',
+      '✓ Dynamic Global Theme & Dark/Light Synchronizer',
+    ],
+    buttonClass: 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white font-bold hover:opacity-95 shadow-md',
+  },
 ];
 
 /**
@@ -173,4 +186,5 @@ export const templateSwitcherTabs = [
   { id: 6, label: 'Neo-Bento Studio', short: 'Neo Bento' },
   { id: 7, label: 'Kinetic Aurora Studio', short: 'Aurora' },
   { id: 8, label: 'DigiTrends Agency', short: 'DigiTrends' },
+  { id: 9, label: 'Apex Sovereign Studio', short: 'Apex Studio' },
 ];

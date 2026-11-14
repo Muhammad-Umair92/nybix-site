@@ -7,6 +7,7 @@ import Template5CyberAI from './templates/Template5CyberAI.jsx';
 import Template6NeoBento from './templates/Template6NeoBento.jsx';
 import Template7AuroraKinetic from './templates/Template7AuroraKinetic.jsx';
 import Template8DigiTrends from './templates/Template8DigiTrends.jsx';
+import Template9ApexGlobal from './templates/Template9ApexGlobal.jsx';
 import TemplateSwitcher from './components/TemplateSwitcher';
 import CompareModal from './components/CompareModal';
 import ContactModal from './components/ContactModal';
@@ -56,6 +57,9 @@ export default function App() {
         )}
         {activeTemplate === 8 && (
           <Template8DigiTrends onOpenContact={() => setIsContactOpen(true)} />
+        )}
+        {activeTemplate === 9 && (
+          <Template9ApexGlobal onOpenContact={() => setIsContactOpen(true)} />
         )}
       </main>
 
