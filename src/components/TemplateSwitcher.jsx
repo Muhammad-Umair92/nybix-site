@@ -75,7 +75,7 @@ export default function TemplateSwitcher({
           })}
         </div>
 
-        {/* Right: Quick Compare + Client View Toggle + Direct Phone */}
+        {/* Right: Quick Compare + Explicit Client Mode ON/OFF Toggle + Direct Phone */}
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onOpenCompare}
@@ -88,16 +88,26 @@ export default function TemplateSwitcher({
             <span className="sm:hidden">9</span>
           </button>
 
-          {/* Client View / Hide Test Controls */}
+          {/* Explicit Client Mode ON/OFF Switch */}
           {onToggleTestMode && (
             <button
               onClick={() => onToggleTestMode(false)}
-              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 transition font-medium text-[11px] cursor-pointer shrink-0"
-              title="Switch to Clean Client View (Hides top switcher and testing tools)"
+              className="flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900/95 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 text-white transition-all shadow-xs hover:shadow-md cursor-pointer shrink-0 group"
+              title="Click to turn Client Mode ON (Hides all test bars, template switchers, and developer tools)"
             >
-              <Eye className="w-3 h-3 text-emerald-400" />
-              <span className="hidden md:inline">Client View</span>
-              <span className="md:hidden">View</span>
+              <div className="flex items-center gap-1.5">
+                <Eye className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="font-bold text-[11px] text-slate-200 whitespace-nowrap">
+                  Client Mode
+                </span>
+              </div>
+              {/* Visual Toggle Switch (OFF State) */}
+              <div className="relative inline-flex items-center h-4 w-7 rounded-full bg-slate-800 border border-slate-600 p-0.5 transition-colors group-hover:border-emerald-400">
+                <div className="h-2.5 w-2.5 rounded-full bg-slate-400 group-hover:bg-slate-200 transition-transform translate-x-0" />
+              </div>
+              <span className="text-[9px] font-black uppercase text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/30 shrink-0">
+                OFF
+              </span>
             </button>
           )}
           

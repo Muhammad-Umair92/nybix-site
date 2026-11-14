@@ -29,20 +29,23 @@ export default function App() {
     }
   });
 
-  // Test Mode Toggle State (persisted in localStorage + URL override)
+  // Test Mode Toggle State: DEFAULT IS FALSE (Client Mode ON by default, test tools hidden)
   const [isTestMode, setIsTestMode] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('test') === '0' || params.get('demo') === '0' || params.get('client') === '1') {
-        return false;
-      }
+      // Query param override: ?test=1 or ?demo=1 enables test mode
       if (params.get('test') === '1' || params.get('demo') === '1') {
         return true;
       }
+      // Query param override: ?test=0 or ?client=1 forces client mode
+      if (params.get('test') === '0' || params.get('demo') === '0' || params.get('client') === '1') {
+        return false;
+      }
       const saved = localStorage.getItem('nybix_test_mode');
-      return saved !== null ? saved === 'true' : true;
+      // Default: FALSE (Client Mode ON, testing tools hidden)
+      return saved !== null ? saved === 'true' : false;
     } catch {
-      return true;
+      return false;
     }
   });
 
@@ -93,7 +96,7 @@ export default function App() {
         />
       )}
 
-      {/* ── Active Template Renderer ── */}
+      {/* ── Active Template Renderer (Defaults to Template 9: Apex Global Sovereign Studio) ── */}
       <main>
         {activeTemplate === 1 && (
           <Template1Enterprise onOpenContact={() => setIsContactOpen(true)} />
@@ -127,18 +130,25 @@ export default function App() {
       {/* ── Floating Theme Customizer (Only Visible in Test Mode) ── */}
       {isTestMode && <ThemePicker />}
 
-      {/* ── Discreet Floating Badge to Re-Enable Test Mode When in Client View ── */}
+      {/* ── Floating Control Pill to Toggle Client Mode OFF / Test Mode ON (When in Client Mode) ── */}
       {!isTestMode && (
         <div className="fixed bottom-6 right-6 z-50">
           <button
             onClick={() => handleToggleTestMode(true)}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold bg-slate-900/90 hover:bg-slate-950 text-white border border-white/20 shadow-2xl backdrop-blur-md transition-all hover:scale-105 cursor-pointer opacity-80 hover:opacity-100 group"
-            title="Open Developer Demo & Template Switcher (Shortcut: Alt + T)"
+            className="flex items-center gap-2.5 px-3.5 py-2 rounded-full text-xs font-bold bg-slate-950/90 hover:bg-slate-900 text-white border border-emerald-500/50 hover:border-emerald-400 shadow-2xl backdrop-blur-md transition-all hover:scale-105 cursor-pointer group"
+            title="Client Mode is ON (All testing options hidden). Click to turn Test Mode ON, or press Alt + T"
           >
-            <SlidersHorizontal className="w-3.5 h-3.5 text-blue-400 group-hover:rotate-45 transition-transform" />
-            <span>Test Mode:</span>
-            <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-slate-800 text-slate-300 uppercase">
-              OFF
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="text-emerald-300 font-bold">Client Mode:</span>
+            {/* Active Switch Indicator */}
+            <div className="relative inline-flex items-center h-3.5 w-6 rounded-full bg-emerald-500/40 border border-emerald-400 p-0.5 transition-colors">
+              <div className="h-2 w-2 rounded-full bg-emerald-300 transition-transform translate-x-2.5" />
+            </div>
+            <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-emerald-400 text-slate-950 uppercase tracking-wide">
+              ON
+            </span>
+            <span className="text-[10px] text-slate-400 font-medium pl-1 border-l border-white/20 hidden sm:inline">
+              Test Mode (Alt+T)
             </span>
           </button>
         </div>
