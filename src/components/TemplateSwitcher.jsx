@@ -1,5 +1,5 @@
 import React from 'react';
-import { SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal, Eye } from 'lucide-react';
 import { cn } from '../lib/cn';
 import { templateSwitcherTabs } from '../data/navigation';
 import { companyInfo } from '../data/company';
@@ -13,6 +13,7 @@ export default function TemplateSwitcher({
   onTemplateChange,
   onOpenCompare,
   onOpenContact,
+  onToggleTestMode,
 }) {
   return (
     <div
@@ -74,17 +75,31 @@ export default function TemplateSwitcher({
           })}
         </div>
 
-        {/* Right: Quick Compare + Direct Phone */}
+        {/* Right: Quick Compare + Client View Toggle + Direct Phone */}
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onOpenCompare}
             className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-white transition font-medium text-[11px] cursor-pointer hover:opacity-90 shrink-0"
             style={{ backgroundColor: 'var(--color-accent, #003882)' }}
+            title="Side-by-side comparison of all 9 templates"
           >
             <SlidersHorizontal className="w-3 h-3" />
             <span className="hidden sm:inline">Compare</span>
             <span className="sm:hidden">9</span>
           </button>
+
+          {/* Client View / Hide Test Controls */}
+          {onToggleTestMode && (
+            <button
+              onClick={() => onToggleTestMode(false)}
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 transition font-medium text-[11px] cursor-pointer shrink-0"
+              title="Switch to Clean Client View (Hides top switcher and testing tools)"
+            >
+              <Eye className="w-3 h-3 text-emerald-400" />
+              <span className="hidden md:inline">Client View</span>
+              <span className="md:hidden">View</span>
+            </button>
+          )}
           
           <a
             href={`tel:${companyInfo.phones.pkCall}`}
