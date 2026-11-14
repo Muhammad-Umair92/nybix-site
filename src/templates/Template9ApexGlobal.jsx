@@ -128,21 +128,26 @@ function ApexCounter({ target }) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const numeric = parseInt(target.replace(/\D/g, ''), 10);
-          const suffix = target.replace(/[\d,]/g, '');
-          if (!numeric) return;
-          const steps = 40;
-          const stepVal = numeric / steps;
+          const match = target.match(/^([\d,.]+)(.*)$/);
+          if (!match) return;
+          const numStr = match[1].replace(/,/g, '');
+          const isFloat = numStr.includes('.');
+          const num = parseFloat(numStr);
+          const suffix = match[2] || '';
+          if (isNaN(num)) return;
+
+          const steps = 30;
+          const stepVal = num / steps;
           let current = 0;
           const timer = setInterval(() => {
             current += stepVal;
-            if (current >= numeric) {
+            if (current >= num) {
               setDisplay(target);
               clearInterval(timer);
             } else {
-              setDisplay(Math.floor(current).toLocaleString() + suffix);
+              setDisplay((isFloat ? current.toFixed(2) : Math.floor(current).toLocaleString()) + suffix);
             }
-          }, 30);
+          }, 35);
         }
       },
       { threshold: 0.2 }
@@ -158,7 +163,7 @@ function ApexCounter({ target }) {
    MAIN COMPONENT: TEMPLATE 9 (APEX GLOBAL BENCHMARK)
 ───────────────────────────────────────────────────────────────── */
 export default function Template9ApexGlobal({ onOpenContact }) {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [activePillar, setActivePillar] = useState(solutionPillars[0].id);
   const [activeTab, setActiveTab] = useState('architecture');
   const { activeTheme } = useTheme();

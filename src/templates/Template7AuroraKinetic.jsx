@@ -45,7 +45,7 @@ import { cn } from '../lib/cn';
  */
 export default function Template7AuroraKinetic({ onOpenContact }) {
   // Built-in Dark / Light Mode
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   // Hero Spatial Node Switcher
   const [activeNode, setActiveNode] = useState(0);

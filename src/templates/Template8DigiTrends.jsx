@@ -94,7 +94,7 @@ const awards = [
 
 /* ─────────── Animated counter ─────────── */
 function AnimatedCounter({ target, duration = 1500 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const ref = useRef(null);
   const started = useRef(false);
 
@@ -103,29 +103,35 @@ function AnimatedCounter({ target, duration = 1500 }) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const numericTarget = parseInt(target.replace(/\D/g, ''), 10);
-          const suffix = target.replace(/[\d,]/g, '');
-          const steps = 60;
-          const increment = numericTarget / steps;
+          const match = target.match(/^([\d,.]+)(.*)$/);
+          if (!match) return;
+          const numStr = match[1].replace(/,/g, '');
+          const isFloat = numStr.includes('.');
+          const num = parseFloat(numStr);
+          const suffix = match[2] || '';
+          if (isNaN(num)) return;
+
+          const steps = 30;
+          const increment = num / steps;
           let current = 0;
           const timer = setInterval(() => {
             current += increment;
-            if (current >= numericTarget) {
-              setCount(numericTarget + suffix);
+            if (current >= num) {
+              setCount(target);
               clearInterval(timer);
             } else {
-              setCount(Math.floor(current) + suffix);
+              setCount((isFloat ? current.toFixed(2) : Math.floor(current).toLocaleString()) + suffix);
             }
           }, duration / steps);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [target, duration]);
 
-  return <span ref={ref}>{count || target}</span>;
+  return <span ref={ref}>{count}</span>;
 }
 
 /* ─────────── Marquee ─────────── */
@@ -284,7 +290,7 @@ function HeroSlider({ onOpenContact, isDark }) {
 
 /* ─────────── Main Template ─────────── */
 export default function Template8DigiTrends({ onOpenContact }) {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const { activeTheme } = useTheme();
 
   const bg = isDark ? '#0b0f17' : '#ffffff';

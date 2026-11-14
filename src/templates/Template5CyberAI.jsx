@@ -40,7 +40,7 @@ import { cn } from '../lib/cn';
  */
 export default function Template5CyberAI({ onOpenContact }) {
   // Built-in Dark / Light Mode Toggle
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   // Interactive AP Console Scanner State
   const [ocrStep, setOcrStep] = useState(0); // 0: Idle, 1: Scanning, 2: Matched
