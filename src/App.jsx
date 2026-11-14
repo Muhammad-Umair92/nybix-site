@@ -6,6 +6,7 @@ import Template4Futuristic from './templates/Template4Futuristic.jsx';
 import Template5CyberAI from './templates/Template5CyberAI.jsx';
 import Template6NeoBento from './templates/Template6NeoBento.jsx';
 import Template7AuroraKinetic from './templates/Template7AuroraKinetic.jsx';
+import Template8DigiTrends from './templates/Template8DigiTrends.jsx';
 import TemplateSwitcher from './components/TemplateSwitcher';
 import CompareModal from './components/CompareModal';
 import ContactModal from './components/ContactModal';
@@ -52,6 +53,9 @@ export default function App() {
         )}
         {activeTemplate === 7 && (
           <Template7AuroraKinetic onOpenContact={() => setIsContactOpen(true)} />
+        )}
+        {activeTemplate === 8 && (
+          <Template8DigiTrends onOpenContact={() => setIsContactOpen(true)} />
         )}
       </main>
 

@@ -146,6 +146,19 @@ export const compareTemplates = [
     ],
     buttonClass: 'bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 text-white font-bold hover:opacity-90 shadow-sm',
   },
+  {
+    id: 8,
+    label: 'Template 8',
+    title: 'DigiTrends Agency Studio',
+    desc: 'Bold digital agency aesthetic inspired by DigiTrends.co — high-contrast black/red, Rubik typography, hero slider, and marquee client proof.',
+    features: [
+      '✓ Animated Hero Slider with 3 Rotating Themes',
+      '✓ Animated Service Grid with Hover Interactions',
+      '✓ Infinite Marquee Client Logos & Award Badges',
+      '✓ Built-in Dark & Light Mode Switcher',
+    ],
+    buttonClass: 'bg-[#ff0000] text-white font-bold hover:bg-[#cc0000] shadow-sm',
+  },
 ];
 
 /**
@@ -159,4 +172,5 @@ export const templateSwitcherTabs = [
   { id: 5, label: 'Cyber AI Matrix', short: 'Cyber AI' },
   { id: 6, label: 'Neo-Bento Studio', short: 'Neo Bento' },
   { id: 7, label: 'Kinetic Aurora Studio', short: 'Aurora' },
+  { id: 8, label: 'DigiTrends Agency', short: 'DigiTrends' },
 ];

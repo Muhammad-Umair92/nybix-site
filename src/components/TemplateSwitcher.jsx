@@ -83,7 +83,7 @@ export default function TemplateSwitcher({
           >
             <SlidersHorizontal className="w-3 h-3" />
             <span className="hidden sm:inline">Compare</span>
-            <span className="sm:hidden">7</span>
+            <span className="sm:hidden">8</span>
           </button>
           
           <a
